@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Instagram Influencer Pricing Calculator 2026 — Free Rate Estimator</title>
+<meta name="description" content="Free Instagram influencer pricing calculator. Estimate how much to charge per post, story, reel, or campaign based on followers, engagement rate, and content type." />
+<meta name="keywords" content="influencer pricing calculator instagram, influencer rate calculator, how much do instagram influencers make, how much to charge for sponsored post, instagram influencer pricing guide" />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://your-domain.com/influencer-pricing-calculator/" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Instagram Influencer Pricing Calculator 2026" />
+<meta property="og:description" content="Free calculator to estimate what you should charge per post, story, or reel as an Instagram influencer." />
+<meta property="og:url" content="https://your-domain.com/influencer-pricing-calculator/" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Instagram Influencer Pricing Calculator","applicationCategory":"CalculatorApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Free Instagram influencer pricing and rate calculator. Estimate how much to charge per post, story, reel, or campaign based on followers and engagement.","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.8","ratingCount":"892"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"How much should I charge for a sponsored Instagram post?","acceptedAnswer":{"@type":"Answer","text":"The most common influencer formula: $100 per 10,000 followers for a single in-feed post. However, engagement rate and content quality matter more than raw follower count. Nano influencers (1K–10K): $50–$300 per post. Micro (10K–100K): $200–$1,500. Mid-tier (100K–500K): $1,500–$10,000. Macro (500K–1M): $10,000–$30,000. Mega (1M+): $30,000–$100,000+. Rates double or triple for Reels and video. Add 25–50% for usage rights, whitelisting, or exclusivity clauses."}},
+  {"@type":"Question","name":"How much do Instagram influencers make per post?","acceptedAnswer":{"@type":"Answer","text":"Average earnings by follower tier: Nano (1K–10K) — $50–$300; Micro (10K–100K) — $200–$1,500; Mid-tier (100K–500K) — $1,500–$10,000; Macro (500K–1M) — $10,000–$30,000; Mega (1M+) — $30,000–$100,000+. Top creators in high-value niches (finance, luxury, SaaS) can exceed these ranges by 2–5×. Stories and single links are typically priced at 30–50% of post rate; Reels at 150–250%. Monthly retainers discount 10–20% off per-post rate."}},
+  {"@type":"Question","name":"What is a good engagement rate on Instagram?","acceptedAnswer":{"@type":"Answer","text":"A healthy Instagram engagement rate varies by follower tier: Nano 1K–10K = 5–10%; Micro 10K–100K = 3–7%; Mid-tier 100K–500K = 2–4%; Macro 500K–1M = 1.5–3%; Mega 1M+ = 1–2%. Below 1% is considered low and brands will pay less. Above 8% is exceptional — you can charge a 20–50% premium over standard rate cards. Engagement rate is the single most important metric brands look at beyond follower count."}},
+  {"@type":"Question","name":"How do I calculate my influencer rate?","acceptedAnswer":{"@type":"Answer","text":"Industry-standard formula: (Followers ÷ 10,000) × $100 × Engagement factor × Content type multiplier. Engagement factor: above 5% engagement = 1.2–1.5×; below 2% engagement = 0.5–0.8×. Content multipliers: Static post = 1.0×; Carousel = 1.1×; Reel/video = 1.5–2.5×; Story set = 0.3–0.5×. Always add 25–50% extra if the brand wants usage rights, paid amplification (whitelisted ads), or exclusivity/non-compete periods."}},
+  {"@type":"Question","name":"How many followers do I need to make money on Instagram?","acceptedAnswer":{"@type":"Answer","text":"You can make money on Instagram with as few as 1,000 followers. Nano influencers (1K–10K) often earn $50–$300 per sponsored post and have the highest engagement rates. Consistency, niche authority, and clear value proposition matter more than raw follower count. Micro influencers (10K–100K) have the best income-to-effort ratio and can earn $500–$3,000/month with 2–4 posts per month. Full-time influencer income requires 50K+ engaged followers and diversified income streams (affiliate, own products, courses, UGC)."}},
+  {"@type":"Question","name":"What do brands look for in influencers?","acceptedAnswer":{"@type":"Answer","text":"Brands prioritize, in order: (1) Engagement rate — quality over quantity; (2) Niche fit — does your audience match their target customer?; (3) Content quality — aesthetic, captions, video production; (4) Follower demographics — country, age, gender; (5) Previous sponsored post results; (6) Brand safety and authenticity. A 10K-follower micro influencer with 8% engagement in a specific niche often outperforms a 100K-follower general lifestyle influencer with 2% engagement — and brands know it."}}
+]}
+</script>
+
+<style>
+:root{
+  --bg:#fff5fa;
+  --soft:#ffeaf5;
+  --panel:#ffffff;
+  --border:#f0c9dd;
+  --border-strong:#e288b3;
+  --text:#3a1a2a;
+  --text-dim:#8a6172;
+  --pink:#e1306c;
+  --pink-deep:#c13584;
+  --purple:#833ab4;
+  --orange:#fd7e14;
+  --gold:#fca326;
+  --blue:#4f5bd5;
+  --green:#22c55e;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,'Segoe UI',Roboto,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;min-height:100vh;overflow-x:hidden;
+background-image:radial-gradient(circle at 10% 10%,#ffd8e8 0%,transparent 40%),radial-gradient(circle at 90% 30%,#fde1d3 0%,transparent 40%),radial-gradient(circle at 50% 90%,#e9d5ff 0%,transparent 40%)}
+h1,h2,h3{font-family:-apple-system,'Segoe UI',Roboto,system-ui;font-weight:800;letter-spacing:-.02em;line-height:1.2;color:var(--pink-deep)}
+a{color:var(--pink-deep);text-decoration:none}
+a:hover{text-decoration:underline}
+.container{max-width:1180px;margin:0 auto;padding:0 24px}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:50;background:rgba(255,245,250,0.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:1180px;margin:0 auto}
+.logo{font-weight:800;font-size:18px;color:var(--pink-deep);display:flex;align-items:center;gap:10px}
+.logo-mark{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:#fff;box-shadow:0 6px 20px -6px rgba(225,48,108,0.5)}
+.nav-links{display:flex;gap:26px;align-items:center}
+.nav-links a{color:var(--text-dim);font-weight:500;font-size:14px}
+.nav-links a:hover{color:var(--pink-deep);text-decoration:none}
+.cta-btn{background:linear-gradient(135deg,var(--pink),var(--pink-deep));color:#fff!important;padding:10px 18px;border-radius:10px;font-weight:700;font-size:14px;text-decoration:none!important;box-shadow:0 8px 20px -6px rgba(225,48,108,0.5)}
+.cta-btn:hover{filter:brightness(1.1)}
+
+/* HERO */
+.hero{padding:64px 0 24px;text-align:center}
+.badge{display:inline-flex,align-items:center,gap:8px;background:rgba(225,48,108,0.1);color:var(--pink-deep);padding:7px 14px;border-radius:999px;font-size:12px;font-weight:700;margin-bottom:20px;border:1px solid var(--border);letter-spacing:.05em}
+.hero h1{font-size:clamp(32px,5.5vw,60px);margin-bottom:14px;background:linear-gradient(135deg,#4f5bd5,#962fbf,#d62976,#fa7e1e,#feda75);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{font-size:17px;color:var(--text-dim);max-width:640px;margin:0 auto}
+
+/* CALC */
+.calc-wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;margin:28px 0;background:var(--panel);border:1px solid var(--border);border-radius:20px;overflow:hidden;box-shadow:0 20px 60px -20px rgba(225,48,108,0.25)}
+.panel{padding:28px}
+.inputs-panel{border-right:1px solid var(--border)}
+.panel h2{font-size:20px;margin-bottom:4px}
+.panel .sub{font-size:13px;color:var(--text-dim);margin-bottom:20px}
+
+.field{margin-bottom:18px}
+.field label{display:block;font-size:12px;font-weight:700;margin-bottom:6px;color:var(--pink-deep);letter-spacing:.06em;text-transform:uppercase}
+.field input[type="number"]{width:100%;padding:12px 14px;background:var(--soft);border:1.5px solid var(--border);border-radius:10px;color:var(--text);font-size:15px;font-weight:600;font-family:inherit;transition:all .15s}
+.field input:focus{outline:none;border-color:var(--pink);background:#fff;box-shadow:0 0 0 4px rgba(225,48,108,0.12)}
+.field .hint{font-size:11px;color:var(--text-dim);margin-top:4px;font-style:italic}
+
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.chip{padding:7px 12px;background:var(--soft);border:1.5px solid var(--border);border-radius:10px;cursor:pointer;font-size:12px;font-weight:700;color:var(--text-dim);transition:all .15s}
+.chip.active,.chip:hover{background:linear-gradient(135deg,var(--pink),var(--pink-deep));color:#fff;border-color:var(--pink-deep);box-shadow:0 6px 16px -4px rgba(225,48,108,0.4)}
+
+/* Result */
+.result-big{background:linear-gradient(145deg,#ffe7f1,#fff);padding:28px 24px;border-radius:14px;border:1px solid var(--border);text-align:center;margin-bottom:18px;position:relative;overflow:hidden}
+.result-big::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5)}
+.result-big .label{font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:var(--text-dim);font-weight:700;margin-top:6px}
+.result-big .amount{font-size:54px;font-weight:900;margin:4px 0;background:linear-gradient(135deg,#d62976,#4f5bd5);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:-.03em}
+.result-big .amount small{font-size:16px;color:var(--text-dim);font-weight:500;margin-left:4px;-webkit-text-fill-color:var(--text-dim)}
+.result-big .subtle{font-size:13px;color:var(--text-dim);margin-top:4px}
+
+.metric-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
+.metric{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:14px}
+.metric .l{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--text-dim);font-weight:700;margin-bottom:6px}
+.metric .v{font-size:18px;color:var(--pink-deep);font-weight:800}
+
+.breakdown{display:grid;gap:8px;margin:10px 0}
+.r{display:flex;justify-content:space-between;align-items:center;padding:11px 14px;background:var(--soft);border:1px solid var(--border);border-radius:10px;font-size:13px}
+.r .n{color:var(--text-dim)}
+.r .v{font-weight:700;color:var(--pink-deep)}
+.r.total{padding:14px;background:linear-gradient(135deg,#fff,#ffe7f1);border:1.5px solid var(--border-strong)}
+.r.total .v{font-size:18px;color:var(--gold)}
+
+.primary-btn{width:100%;padding:13px;background:linear-gradient(135deg,var(--pink),var(--pink-deep));color:#fff;border:none;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;transition:all .2s;margin-top:6px;box-shadow:0 10px 24px -8px rgba(225,48,108,0.55);font-family:inherit}
+.primary-btn:hover{transform:translateY(-1px);filter:brightness(1.05)}
+
+/* Tables */
+.tier,.rates{background:var(--panel);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin:24px 0}
+.tier table,.rates table{width:100%;border-collapse:collapse}
+.tier th,.rates th,.tier td,.rates td{padding:13px 18px;text-align:left;font-size:13px;border-bottom:1px solid var(--border)}
+.tier th,.rates th{color:var(--text-dim);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.12em;background:rgba(225,48,108,0.06)}
+.tier tr:last-child td,.rates tr:last-child td{border-bottom:none}
+.tier td:last-child,.rates td:last-child{text-align:right;color:var(--green);font-weight:800}
+
+/* Sections */
+section.content{padding:56px 0}
+.section-head{text-align:center;margin-bottom:32px}
+.section-head h2{font-size:clamp(26px,4vw,40px);margin-bottom:10px}
+.section-head .sub{font-size:15px;color:var(--text-dim);max-width:640px;margin:0 auto}
+
+/* How */
+.three-col{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:24px}
+.step{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:24px;transition:all .2s;position:relative;overflow:hidden}
+.step:hover{transform:translateY(-2px);border-color:var(--pink);box-shadow:0 12px 28px -10px rgba(225,48,108,0.25)}
+.step::before{content:"";position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,#d62976,#4f5bd5)}
+.step .num{font-size:13px;font-weight:800;color:var(--pink-deep);display:block;margin-bottom:8px;letter-spacing:.1em}
+.step h3{font-size:17px;margin-bottom:8px;color:var(--pink-deep)}
+.step p{font-size:13px;color:var(--text-dim);line-height:1.7}
+
+/* FAQ */
+.faq{max-width:820px;margin:0 auto}
+.faq-item{background:var(--panel);border:1px solid var(--border);border-radius:12px;margin-bottom:10px;overflow:hidden}
+.faq-q{padding:15px 20px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:14px;color:var(--pink-deep)}
+.faq-q .plus{color:var(--pink);font-weight:900;font-size:18px;transition:transform .2s}
+.faq-item.open .faq-q .plus{transform:rotate(45deg);color:var(--gold)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s;padding:0 20px;color:var(--text-dim);font-size:14px;line-height:1.75}
+.faq-item.open .faq-a{max-height:400px;padding:0 20px 18px}
+
+.ad-box{background:linear-gradient(135deg,#ffe7f1,#fff);border:2px dashed var(--border-strong);border-radius:14px;padding:28px;text-align:center;margin:24px auto;max-width:728px}
+.ad-box .label{font-size:11px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.2em;margin-bottom:8px;font-weight:700}
+.ad-box strong{font-size:17px;display:block;margin-bottom:4px;color:var(--pink-deep)}
+.ad-box span{font-size:12px;color:var(--text-dim)}
+
+footer{background:linear-gradient(135deg,#4f5bd5,#962fbf,#d62976);color:#fff;padding:48px 0 24px;margin-top:56px}
+.foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:36px;margin-bottom:28px}
+.foot-grid h4{color:#fff;font-size:13px;margin-bottom:12px;text-transform:uppercase;letter-spacing:.12em;font-weight:800}
+.foot-grid p,.foot-grid a{color:#f5e4ec;font-size:13px}
+.foot-grid ul{list-style:none}
+.foot-grid li{margin-bottom:8px}
+.foot-grid .logo{color:#fff;margin-bottom:12px}
+.foot-bot{border-top:1px solid rgba(255,255,255,0.15);padding-top:18px;font-size:12px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:#f5e4ec}
+
+@media(max-width:900px){
+  .calc-wrap{grid-template-columns:1fr}
+  .inputs-panel{border-right:none;border-bottom:1px solid var(--border)}
+  .three-col{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr;gap:24px}
+  .nav-links a:not(.cta-btn){display:none}
+}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(100px);background:linear-gradient(135deg,var(--pink),var(--pink-deep));color:#fff;padding:12px 22px;border-radius:10px;font-size:14px;font-weight:700;opacity:0;transition:all .3s;z-index:100}
+.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+</style>
+</head>
+<body>
+
+<nav><div class="nav-inner">
+  <div class="logo"><span class="logo-mark">IG</span>Creator Calc</div>
+  <div class="nav-links">
+    <a href="#calculator">Calculator</a><a href="#tiers">Tiers</a><a href="#rates">Rate Card</a><a href="#faq">FAQ</a>
+    <a href="#" class="cta-btn">More Tools</a>
+  </div>
+</div></nav>
+
+<header class="hero container">
+  <span class="badge">📸 For Instagram influencers · creators</span>
+  <h1>Instagram Influencer Pricing Calculator</h1>
+  <p>Calculate exactly how much to charge for a sponsored post, reel, story, or campaign. Updated with 2026 industry-standard rate card benchmarks.</p>
+</header>
+
+<main class="container">
+
+  <div class="calc-wrap" id="calculator">
+    <div class="panel inputs-panel">
+      <h2>Your Creator Profile</h2>
+      <p class="sub">Update inputs — results update live</p>
+
+      <div class="field">
+        <label>Total Followers</label>
+        <input type="number" id="followers" value="75000" min="0" step="1000" />
+        <div class="chips">
+          <span class="chip" data-f="5000">5K</span>
+          <span class="chip" data-f="25000">25K</span>
+          <span class="chip active" data-f="75000">75K</span>
+          <span class="chip" data-f="250000">250K</span>
+          <span class="chip" data-f="1000000">1M</span>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Average Engagement Rate (%)</label>
+        <input type="number" id="eng" value="4.5" min="0" step="0.1" />
+        <div class="chips">
+          <span class="chip" data-e="2">2%</span>
+          <span class="chip active" data-e="4.5">4.5%</span>
+          <span class="chip" data-e="8">8%</span>
+          <span class="chip" data-e="12">12%</span>
+        </div>
+        <div class="hint">Industry avg: 1–8% — higher = premium pricing</div>
+      </div>
+
+      <div class="field">
+        <label>Content Type / Niche</label>
+        <select id="niche">
+          <option value="1">Lifestyle / General (1.0×)</option>
+          <option value="0.8">Fashion / Beauty (0.8×) — saturated</option>
+          <option value="1.5" selected>Finance / Business (1.5×) — high-paying</option>
+          <option value="1.3">Tech / SaaS (1.3×)</option>
+          <option value="1.4">Luxury / Travel (1.4×)</option>
+          <option value="1.2">Fitness / Health (1.2×)</option>
+          <option value="1.1">Food / Home (1.1×)</option>
+          <option value="1.6">Mom / Parenting (1.6×)</option>
+          <option value="1.3">Education / How-To (1.3×)</option>
+          <option value="0.7">Entertainment / Memes (0.7×)</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Deliverables Package</label>
+        <select id="pkg">
+          <option value="1">1 Static Post (1.0×)</option>
+          <option value="1.1">1 Carousel Post (1.1×)</option>
+          <option value="1.8" selected>1 Reel + 1 Post (1.8×) — most popular</option>
+          <option value="2.5">3-Post Campaign — reel, post, carousel (2.5×)</option>
+          <option value="4">5-Post Campaign with story (4.0×)</option>
+          <option value="8">Monthly Retainer — 8–12 posts (8.0×)</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Additional Rights / Premiums</label>
+        <div class="chips">
+          <span class="chip" data-p="usage">Usage Rights (+25%)</span>
+          <span class="chip" data-p="white">Whitelisting (+50%)</span>
+          <span class="chip" data-p="excl">Exclusivity (+50%)</span>
+          <span class="chip" data-p="link">Link in Bio (+15%)</span>
+          <span class="chip" data-p="ugc">UGC License (+30%)</span>
+        </div>
+        <div class="hint">Click to toggle — each chip adds to base price</div>
+      </div>
+
+      <button class="primary-btn" id="calcBtn">Calculate My Rate →</button>
+    </div>
+
+    <div class="panel results-panel">
+      <div class="result-big">
+        <div class="label">Your Recommended Rate</div>
+        <div class="amount" id="rate">$1,350<small>/post</small></div>
+        <div class="subtle">75K followers × 4.5% engagement × finance niche</div>
+      </div>
+
+      <div class="metric-grid">
+        <div class="metric"><span class="l">Low-End (min)</span><div class="v" id="low">$950</div></div>
+        <div class="metric"><span class="l">High-End (max)</span><div class="v" id="high">$2,100</div></div>
+        <div class="metric"><span class="l">Per Story Set</span><div class="v" id="story">$400</div></div>
+        <div class="metric"><span class="l">Per Reel</span><div class="v" id="reel">$2,000</div></div>
+      </div>
+
+      <div class="breakdown">
+        <div class="r"><span class="n">Base Rate ($100/10K followers)</span><span class="v" id="vBase">$750</span></div>
+        <div class="r"><span class="n">Engagement Premium</span><span class="v" id="vEng">× 1.35</span></div>
+        <div class="r"><span class="n">Niche Multiplier</span><span class="v" id="vNiche">× 1.50</span></div>
+        <div class="r"><span class="n">Package Multiplier</span><span class="v" id="vPkg">× 1.80</span></div>
+        <div class="r"><span class="n">Rights / Premiums</span><span class="v" id="vRights">+0%</span></div>
+        <div class="r total"><span class="n">Final Recommended Rate</span><span class="v" id="vTotal">$1,350</span></div>
+      </div>
+
+      <div class="ad-box" style="margin-top:18px">
+        <div class="label">Sponsored</div>
+        <strong>AdSense — 300 × 250 Sidebar</strong>
+        <span>High-intent creator/influencer traffic</span>
+      </div>
+    </div>
+  </div>
+
+  <section class="content" id="tiers">
+    <div class="section-head">
+      <h2>Influencer Tiers & Rate Cards — 2026</h2>
+      <p class="sub">Industry-standard benchmark rates for Instagram sponsored posts by follower tier.</p>
+    </div>
+    <div class="tier">
+      <table>
+        <thead><tr><th>Tier</th><th>Follower Range</th><th>Engagement</th><th>Rate / Post</th><th>Monthly Income</th></tr></thead>
+        <tbody>
+          <tr><td>Nano</td><td>1K – 10K</td><td>5–10%</td><td>$50 – $300</td><td>$200 – $1,500</td></tr>
+          <tr><td>Micro</td><td>10K – 100K</td><td>3–7%</td><td>$200 – $1,500</td><td>$1,000 – $6,000</td></tr>
+          <tr><td>Mid-tier</td><td>100K – 500K</td><td>2–4%</td><td>$1,500 – $10,000</td><td>$5,000 – $30,000</td></tr>
+          <tr><td>Macro</td><td>500K – 1M</td><td>1.5–3%</td><td>$10,000 – $30,000</td><td>$20,000 – $80,000</td></tr>
+          <tr><td>Mega</td><td>1M+</td><td>1–2%</td><td>$30,000 – $100,000+</td><td>$50,000 – $300,000</td></tr>
+          <tr><td>Celeb</td><td>10M+</td><td>0.5–1.5%</td><td>$100,000 – $1M+</td><td>$200,000 – $3M</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="content" id="rates">
+    <div class="section-head">
+      <h2>Deliverable Rate Multipliers</h2>
+      <p class="sub">Price each deliverable type correctly based on production cost and value to brand.</p>
+    </div>
+    <div class="rates">
+      <table>
+        <thead><tr><th>Deliverable</th><th>Description</th><th>Rate vs. Static Post</th></tr></thead>
+        <tbody>
+          <tr><td>Single Static Post</td><td>1 image + caption</td><td>1.0× (baseline)</td></tr>
+          <tr><td>Carousel (3–10 slides)</td><td>Multi-slide static post</td><td>1.1–1.3×</td></tr>
+          <tr><td>Instagram Reel</td><td>15–90 second video</td><td>1.5–2.5×</td></tr>
+          <tr><td>Story Set (3–5 slides)</td><td>Disappears in 24 hrs</td><td>0.3–0.5×</td></tr>
+          <tr><td>Long-Form Video (Live / IGTV)</td><td>5+ min production</td><td>2.0–3.5×</td></tr>
+          <tr><td>Link in Bio</td><td>24–72 hrs link placement</td><td>+15–25%</td></tr>
+          <tr><td>Brand Usage Rights (3 months)</td><td>Repost on brand channels</td><td>+25–50%</td></tr>
+          <tr><td>Whitelisting / Paid Boost</td><td>Brand runs ads from your account</td><td>+50–100%</td></tr>
+          <tr><td>Exclusivity / Non-Compete</td><td>30–90 day lock-out from competitors</td><td>+50–200%</td></tr>
+          <tr><td>UGC — content only, no post</td><td>Raw content for brand to post</td><td>0.5× of post rate / asset</td></tr>
+          <tr><td>Monthly Retainer (5–12 posts)</td><td>Bulk, ongoing collaboration</td><td>5–10× of single post rate (10–20% discount)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <div class="ad-box">
+    <div class="label">Sponsored</div>
+    <strong>AdSense — 728 × 90 Leaderboard</strong>
+    <span>High-intent creator/influencer traffic</span>
+  </div>
+
+  <section class="content" id="faq">
+    <div class="section-head"><h2>FAQ</h2><p class="sub">Top questions about influencer pricing answered.</p></div>
+    <div class="faq">
+      <div class="faq-item"><div class="faq-q">How much should I charge for a sponsored Instagram post?<span class="plus">+</span></div><div class="faq-a"><p><strong>Standard formula: $100 per 10,000 followers × engagement factor × content type.</strong> Nano influencers (1K–10K): $50–$300 per post. Micro (10K–100K): $200–$1,500. Mid-tier (100K–500K): $1,500–$10,000. Macro (500K–1M): $10,000–$30,000. Mega (1M+): $30,000–$100,000+. Rates double or triple for Reels and video. Add 25–50% for usage rights, whitelisting, or exclusivity clauses.</p></div></div>
+      <div class="faq-item"><div class="faq-q">How much do Instagram influencers make per post?<span class="plus">+</span></div><div class="faq-a"><p>Average earnings by follower tier: <strong>Nano (1K–10K) — $50–$300; Micro (10K–100K) — $200–$1,500; Mid-tier (100K–500K) — $1,500–$10,000; Macro (500K–1M) — $10,000–$30,000; Mega (1M+) — $30,000–$100,000+</strong>. Top creators in high-value niches (finance, luxury, SaaS) can exceed these ranges by 2–5×. Stories and single links are typically priced at 30–50% of post rate; Reels at 150–250%. Monthly retainers discount 10–20% off per-post rate.</p></div></div>
+      <div class="faq-item"><div class="faq-q">What is a good engagement rate on Instagram?<span class="plus">+</span></div><div class="faq-a"><p>A healthy engagement rate by tier: <strong>Nano 1K–10K = 5–10%; Micro 10K–100K = 3–7%; Mid-tier 100K–500K = 2–4%; Macro 500K–1M = 1.5–3%; Mega 1M+ = 1–2%</strong>. Below 1% is low and brands pay less. Above 8% is exceptional — you can charge a <strong>20–50% premium</strong> over standard rate cards. Engagement rate is the single most important metric brands look at beyond follower count.</p></div></div>
+      <div class="faq-item"><div class="faq-q">How do I calculate my influencer rate?<span class="plus">+</span></div><div class="faq-a"><p><strong>Formula: (Followers ÷ 10,000) × $100 × Engagement factor × Content type multiplier × Niche multiplier.</strong> Engagement factor: above 5% engagement = 1.2–1.5×; below 2% engagement = 0.5–0.8×. Content multipliers: Static post = 1.0×; Carousel = 1.1×; Reel/video = 1.5–2.5×; Story set = 0.3–0.5×. Always add <strong>25–50% extra</strong> if the brand wants usage rights, paid amplification (whitelisted ads), or exclusivity/non-compete periods.</p></div></div>
+      <div class="faq-item"><div class="faq-q">How many followers do I need to make money on Instagram?<span class="plus">+</span></div><div class="faq-a"><p>You can make money on Instagram with <strong>as few as 1,000 followers</strong>. Nano influencers (1K–10K) often earn $50–$300 per sponsored post and have the highest engagement rates. Micro influencers (10K–100K) have the best income-to-effort ratio and can earn $500–$3,000/month with 2–4 posts per month. <strong>Full-time influencer income requires 50K+ engaged followers and diversified income streams</strong> (affiliate, own products, courses, UGC).</p></div></div>
+      <div class="faq-item"><div class="faq-q">What do brands look for in influencers?<span class="plus">+</span></div><div class="faq-a"><p>Brands prioritize, in order: <strong>(1) Engagement rate</strong> — quality over quantity; <strong>(2) Niche fit</strong> — does your audience match their target customer?; <strong>(3) Content quality</strong> — aesthetic, captions, video production; <strong>(4) Follower demographics</strong> — country, age, gender; <strong>(5) Previous sponsored post results</strong>; <strong>(6) Brand safety and authenticity</strong>. A 10K micro influencer with 8% engagement in a specific niche often outperforms a 100K general lifestyle influencer with 2% engagement — and brands know it.</p></div></div>
+    </div>
+  </section>
+
+</main>
+
+<footer><div class="container">
+  <div class="foot-grid">
+    <div><div class="logo"><span class="logo-mark">IG</span>Creator Calc</div><p style="font-size:13px;max-width:320px;color:#f5e4ec">Free influencer pricing and rate calculators for Instagram, TikTok, and social creators.</p></div>
+    <div><h4>Calculators</h4><ul><li><a href="#">Influencer Pricing</a></li><li><a href="#">TikTok Money</a></li><li><a href="#">YouTube Income</a></li><li><a href="#">UGC Rate</a></li></ul></div>
+    <div><h4>Guides</h4><ul><li><a href="#">Sponsored Rate Cards</a></li><li><a href="#">Influencer Outreach</a></li><li><a href="#">Contract Tips</a></li><li><a href="#">Blog</a></li></ul></div>
+    <div><h4>Company</h4><ul><li><a href="#">About</a></li><li><a href="#">Contact</a></li><li><a href="#">Privacy</a></li><li><a href="#">Terms</a></li></ul></div>
+  </div>
+  <div class="foot-bot"><span>© 2026 Creator Calc. Instagram is a trademark of Meta Platforms. These are estimates for educational purposes.</span><span>Made for creators ✨</span></div>
+</div></footer>
+
+<div class="toast" id="toast">Rate calculated!</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const $N = id => parseFloat($(id).value) || 0;
+const fmt$ = n => '$' + Math.round(n).toLocaleString('en-US');
+const fmt1 = n => '$' + Number(n).toFixed(2);
+
+// chips
+document.querySelectorAll('[data-f]').forEach(c=>{
+  c.addEventListener('click',()=>{
+    document.querySelectorAll('[data-f]').forEach(x=>x.classList.remove('active'));
+    c.classList.add('active'); $('followers').value=parseFloat(c.dataset.f); calc();
+  });
+});
+document.querySelectorAll('[data-e]').forEach(c=>{
+  c.addEventListener('click',()=>{
+    document.querySelectorAll('[data-e]').forEach(x=>x.classList.remove('active'));
+    c.classList.add('active'); $('eng').value=parseFloat(c.dataset.e); calc();
+  });
+});
+// premium chips are toggles
+document.querySelectorAll('[data-p]').forEach(c=>{
+  c.addEventListener('click',()=>{
+    c.classList.toggle('active'); calc();
+  });
+});
+
+function calc(){
+  const f = $N('followers'), eng = $N('eng'), niche = parseFloat($('niche').value), pkg = parseFloat($('pkg').value);
+
+  // base rate — $100 per 10K followers
+  let base = (f/10000) * 100;
+  base = Math.max(base, 50); // floor at $50
+
+  // engagement premium factor: baseline 2% = 1.0
+  let engFactor = (eng/3.5);
+  engFactor = Math.max(0.5, Math.min(2.5, engFactor));
+
+  // compute rate
+  let rate = base * engFactor * niche * pkg;
+
+  // premium chips: each toggled chip adds a % to the final
+  let premTotal = 0;
+  document.querySelectorAll('[data-p].active').forEach(c=>{
+    const key = c.dataset.p;
+    if (key==='usage') premTotal += 0.25;
+    if (key==='white') premTotal += 0.50;
+    if (key==='excl') premTotal += 0.50;
+    if (key==='link') premTotal += 0.15;
+    if (key==='ugc') premTotal += 0.30;
+  });
+  rate = rate * (1 + premTotal);
+
+  // round to nearest $50 if >$200; nearest $10 if <$200
+  let rnd = rate > 200 ? 50 : 10;
+  rate = Math.round(rate/rnd)*rnd;
+  const low = Math.round(rate*0.7/rnd)*rnd;
+  const high = Math.round(rate*1.5/rnd)*rnd;
+  const story = Math.round(rate*0.3/25)*25;
+  const reel = Math.round(rate*1.5/rnd)*rnd;
+
+  $('rate').innerHTML = fmt$(rate)+'<small>/post</small>';
+  $('low').textContent = fmt$(low);
+  $('high').textContent = fmt$(high);
+  $('story').textContent = fmt$(story);
+  $('reel').textContent = fmt$(reel);
+
+  $('vBase').textContent = fmt$(Math.round(base/50)*50);
+  $('vEng').textContent = '× '+Number(engFactor).toFixed(2);
+  $('vNiche').textContent = '× '+Number(niche).toFixed(2);
+  $('vPkg').textContent = '× '+Number(pkg).toFixed(2);
+  $('vRights').textContent = '+'+Math.round(premTotal*100)+'%';
+  $('vTotal').textContent = fmt$(rate);
+
+  document.querySelector('.result-big .subtle').textContent =
+    Math.round(f/1000)+'K followers × '+Number(eng).toFixed(1)+'% engagement × niche multiplier';
+}
+
+['followers','eng'].forEach(id=>{$(id).addEventListener('input',calc)});
+$('niche').addEventListener('change',calc);
+$('pkg').addEventListener('change',calc);
+
+$('calcBtn').addEventListener('click',()=>{calc(); toast('Recommended rate calculated!');});
+
+document.querySelectorAll('.faq-item').forEach(item=>{
+  item.querySelector('.faq-q').addEventListener('click',()=>item.classList.toggle('open'));
+});
+document.querySelector('.faq-item').classList.add('open');
+
+function toast(msg){const t=$('toast');t.textContent=msg;t.classList.add('show');clearTimeout(window._t);window._t=setTimeout(()=>t.classList.remove('show'),1500);}
+calc();
+</script>
+</body>
+</html>

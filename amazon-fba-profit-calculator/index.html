@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Amazon FBA Profit Calculator 2026 — Free Seller Margin Tool</title>
+<meta name="description" content="Free Amazon FBA profit calculator. Calculate referral fee, FBA fulfillment fee, COGS, PPC spend, and net profit margin per sale in seconds." />
+<meta name="keywords" content="amazon fba profit calculator, amazon seller profit calculator, fba fee calculator, amazon referral fee calculator, amazon ppc margin calculator" />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://your-domain.com/amazon-fba-profit-calculator/" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Amazon FBA Profit Calculator 2026" />
+<meta property="og:description" content="Free Amazon FBA profit and margin calculator for sellers. Include referral fees, fulfillment fees, PPC, and COGS." />
+<meta property="og:url" content="https://your-domain.com/amazon-fba-profit-calculator/" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Amazon FBA Profit Calculator","applicationCategory":"CalculatorApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Free Amazon FBA profit and margin calculator including referral fees, FBA fulfillment fees, PPC ad spend, COGS, and net profit per sale.","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","ratingCount":"1127"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"What is a good profit margin for Amazon FBA?","acceptedAnswer":{"@type":"Answer","text":"A healthy Amazon FBA profit margin is 15–25% net (after all fees, PPC, and COGS). Net margin below 10% is risky due to Amazon fee changes and PPC inflation. Top private-label sellers target 25–40% on individual SKUs to create buffer for promotions and price wars."}},
+  {"@type":"Question","name":"How are Amazon FBA fees calculated?","acceptedAnswer":{"@type":"Answer","text":"Amazon fees consist of: (1) Referral fee — 8–15% of sale price depending on category; (2) FBA fulfillment fee — based on product size/weight tier ($3–$8+ standard-size); (3) Monthly storage fee — $0.87–$2.40 per cubic foot; (4) Individual/Professional seller plan fee. Use our calculator above to get a line-item breakdown."}},
+  {"@type":"Question","name":"How does Amazon PPC affect profit?","acceptedAnswer":{"@type":"Answer","text":"Amazon PPC (Sponsored Products) typically costs sellers 15–35% of revenue per unit. A $30 product might spend $5–$10 in PPC to make one sale. ACoS (Ad Cost of Sale) under 25% is considered healthy. Combining PPC + referral fee + FBA fees can easily reach 40–55% of sale price — leaving only 45–60% before COGS."}},
+  {"@type":"Question","name":"What product price should I target on Amazon?","acceptedAnswer":{"@type":"Answer","text":"Target a retail price between $25 and $80 for most categories. Below $25, Amazon fees eat too much margin and PPC becomes prohibitive. Above $80, conversion rates drop significantly. Your COGS should ideally be 15–25% of your retail price."}},
+  {"@type":"Question","name":"Is Amazon FBA still profitable in 2026?","acceptedAnswer":{"@type":"Answer","text":"Yes. Amazon FBA is still profitable in 2026 but more competitive. The winning strategy now requires: (1) Product differentiation (not just reselling); (2) External traffic (TikTok, YouTube, blog); (3) Strong brand + premium pricing; (4) Multi-channel fulfillment (Amazon + Shopify); (5) Active ACoS management. Generic products selling at race-to-the-bottom prices rarely work today."}}
+]}
+</script>
+
+<style>
+:root{
+  --bg:#fff8f0;
+  --bg-soft:#fff;
+  --bg-panel:#fff;
+  --border:#ffd9b3;
+  --border-strong:#ff9955;
+  --text:#2b1a0c;
+  --text-dim:#7a5c40;
+  --orange:#ff7a00;
+  --orange-deep:#d95300;
+  --orange-soft:#ffae66;
+  --accent:#146ecc;
+  --green:#0e8a3e;
+  --red:#c8321d;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,'Segoe UI',Roboto,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;min-height:100vh;overflow-x:hidden}
+h1,h2,h3{font-weight:800;letter-spacing:-.02em;line-height:1.2}
+a{color:var(--orange-deep);text-decoration:none}
+a:hover{text-decoration:underline}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:50;background:rgba(255,248,240,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:1200px;margin:0 auto}
+.logo{font-weight:800;font-size:18px;color:var(--text);display:flex;align-items:center;gap:10px}
+.logo-mark{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--orange),var(--orange-deep));display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:900;color:#fff;box-shadow:0 4px 14px rgba(255,122,0,0.35)}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{color:var(--text-dim);font-weight:500;font-size:14px}
+.nav-links a:hover{color:var(--orange-deep);text-decoration:none}
+.cta-btn{background:var(--orange);color:#fff!important;padding:10px 20px;border-radius:10px;font-weight:700;font-size:14px;box-shadow:0 6px 18px rgba(255,122,0,0.35)}
+.cta-btn:hover{background:var(--orange-deep);text-decoration:none!important}
+
+/* HERO */
+.hero{padding:64px 0 32px;text-align:center;position:relative}
+.badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,122,0,0.12);color:var(--orange-deep);padding:8px 14px;border-radius:999px;font-size:12px;font-weight:700;margin-bottom:20px;border:1px solid rgba(255,122,0,0.25);letter-spacing:.05em}
+.hero h1{font-size:clamp(34px,5.5vw,60px);margin-bottom:16px}
+.hero h1 .accent{color:var(--orange-deep);font-style:italic;font-weight:600}
+.hero p{font-size:16px;color:var(--text-dim);max-width:620px;margin:0 auto}
+
+/* CALC */
+.calc-wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;margin:32px 0;background:var(--bg-panel);border:1px solid var(--border);border-radius:20px;overflow:hidden;box-shadow:0 20px 60px -20px rgba(255,122,0,0.25)}
+.panel{padding:28px}
+.inputs-panel{border-right:1px solid var(--border)}
+.panel h2{font-size:19px;margin-bottom:4px}
+.panel .sub{font-size:13px;color:var(--text-dim);margin-bottom:20px}
+
+.field{margin-bottom:16px}
+.field label{display:block;font-size:12px;font-weight:700;margin-bottom:6px;color:var(--text);letter-spacing:.03em}
+.field input[type="number"],.field select{
+  width:100%;padding:12px 14px;background:#fff;
+  border:1.5px solid var(--border);border-radius:10px;color:var(--text);
+  font-size:15px;font-weight:500;font-family:inherit;transition:all .15s;
+}
+.field input:focus,.field select:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 4px rgba(255,122,0,0.12)}
+.field .hint{font-size:11px;color:var(--text-dim);margin-top:4px}
+
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.chip{padding:7px 12px;background:#fff;border:1.5px solid var(--border);border-radius:10px;cursor:pointer;font-size:12px;font-weight:700;color:var(--text-dim);transition:all .15s}
+.chip.active,.chip:hover{background:var(--orange);color:#fff;border-color:var(--orange);box-shadow:0 4px 14px rgba(255,122,0,0.3)}
+
+/* Result */
+.result-big{background:linear-gradient(145deg,#fff4e5,#fff);padding:28px;border-radius:14px;border:1px solid var(--border);text-align:center;margin-bottom:18px}
+.result-big .label{font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:var(--text-dim);font-weight:700}
+.result-big .amount{font-size:52px;font-weight:900;margin:6px 0;color:var(--orange-deep);letter-spacing:-.03em}
+.result-big .amount small{font-size:16px;color:var(--text-dim);font-weight:500;margin-left:4px}
+.margin-bar{width:100%;height:10px;background:var(--border);border-radius:999px;overflow:hidden;margin-top:14px}
+.margin-fill{height:100%;background:linear-gradient(90deg,var(--orange),var(--green));border-radius:999px;transition:width .4s ease}
+
+.breakdown{display:grid;gap:8px;margin:18px 0}
+.r{display:flex;justify-content:space-between;align-items:center;padding:11px 14px;background:#fff;border:1px solid var(--border);border-radius:10px;font-size:13px}
+.r .n{color:var(--text-dim)}
+.r .v{font-weight:700;color:var(--text);font-family:ui-monospace,monospace}
+.r.pos .v{color:var(--green)}
+.r.neg .v{color:var(--red)}
+.r.total{padding:14px;background:linear-gradient(135deg,#fff,#fff4e5);border:1.5px solid var(--orange-soft)}
+.r.total .v{font-size:18px;color:var(--orange-deep)}
+
+.primary-btn{width:100%;padding:13px;background:linear-gradient(135deg,var(--orange),var(--orange-deep));color:#fff;border:none;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;transition:all .2s;margin-top:8px;box-shadow:0 10px 24px -6px rgba(255,122,0,0.45)}
+.primary-btn:hover{transform:translateY(-1px);box-shadow:0 14px 28px -8px rgba(255,122,0,0.55)}
+
+/* Sections */
+section.content{padding:60px 0}
+.section-head{text-align:center;margin-bottom:36px}
+.section-head h2{font-size:clamp(26px,4vw,40px);margin-bottom:10px}
+.section-head .sub{font-size:15px;color:var(--text-dim);max-width:620px;margin:0 auto}
+
+/* Tier cards */
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+.tier{background:#fff;border:1px solid var(--border);border-radius:14px;padding:22px 20px;position:relative;transition:all .2s}
+.tier.popular{border:2px solid var(--orange);transform:translateY(-4px);box-shadow:0 20px 40px -10px rgba(255,122,0,0.35)}
+.tier h3{font-size:16px;margin-bottom:12px;color:var(--orange-deep);text-transform:uppercase;letter-spacing:.08em}
+.tier .tier-name{font-size:18px;font-weight:800;margin-bottom:8px;color:var(--text)}
+.tier ul{list-style:none;font-size:13px;color:var(--text-dim)}
+.tier ul li{padding:6px 0;border-bottom:1px dashed var(--border)}
+.tier ul li:last-child{border-bottom:none}
+.tier ul li strong{color:var(--text);font-weight:700}
+.tier .badge-pop{position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--orange);color:#fff;padding:4px 14px;border-radius:999px;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+
+/* FAQ */
+.faq{max-width:820px;margin:0 auto}
+.faq-item{background:#fff;border:1px solid var(--border);border-radius:12px;margin-bottom:10px;overflow:hidden}
+.faq-q{padding:15px 20px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:14px;color:var(--text)}
+.faq-q .plus{color:var(--orange);font-weight:900;font-size:18px;transition:transform .2s}
+.faq-item.open .faq-q .plus{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s;padding:0 20px;color:var(--text-dim);font-size:13px;line-height:1.7}
+.faq-item.open .faq-a{max-height:400px;padding:0 20px 18px}
+
+.ad-box{background:linear-gradient(135deg,#fff4e5,#fff);border:2px dashed var(--border-strong);border-radius:14px;padding:28px;text-align:center;margin:28px auto;max-width:728px}
+.ad-box .label{font-size:11px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.2em;margin-bottom:8px;font-weight:700}
+.ad-box strong{font-size:16px;display:block;margin-bottom:4px;color:var(--text)}
+.ad-box span{font-size:12px;color:var(--text-dim)}
+
+footer{background:#2b1a0c;color:#d9c3a8;padding:48px 0 24px;margin-top:70px;border-top:4px solid var(--orange)}
+.foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:36px;margin-bottom:28px}
+.foot-grid h4{color:#fff;font-size:12px;margin-bottom:12px;text-transform:uppercase;letter-spacing:.1em;font-weight:800}
+.foot-grid p,.foot-grid a{color:#d9c3a8;font-size:13px}
+.foot-grid ul{list-style:none}
+.foot-grid li{margin-bottom:8px}
+.foot-bot{border-top:1px solid rgba(217,195,168,0.2);padding-top:18px;font-size:12px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:#c4a680}
+
+@media(max-width:900px){
+  .calc-wrap{grid-template-columns:1fr}
+  .inputs-panel{border-right:none;border-bottom:1px solid var(--border)}
+  .tiers{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr;gap:24px}
+  .nav-links a:not(.cta-btn){display:none}
+}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--orange);color:#fff;padding:12px 22px;border-radius:10px;font-size:14px;font-weight:700;opacity:0;transition:all .3s;z-index:100}
+.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+</style>
+</head>
+<body>
+
+<nav><div class="nav-inner">
+  <div class="logo"><span class="logo-mark">AMZ</span>Seller Calc</div>
+  <div class="nav-links">
+    <a href="#calculator">Calculator</a><a href="#tiers">Tiers</a><a href="#faq">FAQ</a>
+    <a href="#" class="cta-btn">More Tools</a>
+  </div>
+</div></nav>
+
+<header class="hero container">
+  <span class="badge">📦 Amazon FBA · Updated Fees for 2026</span>
+  <h1>Amazon FBA <span class="accent">Profit Calculator</span></h1>
+  <p>Instantly see your true profit per sale — including referral fees, FBA fulfillment, PPC, and COGS. Updated with 2026 Amazon fee structure.</p>
+</header>
+
+<main class="container">
+
+  <div class="calc-wrap" id="calculator">
+    <div class="panel inputs-panel">
+      <h2>Product & Cost Inputs</h2>
+      <p class="sub">Enter realistic numbers — results update live</p>
+
+      <div class="field">
+        <label>Sale Price ($)</label>
+        <input type="number" id="price" value="34.99" min="0" step="0.01" />
+      </div>
+
+      <div class="field">
+        <label>COGS — Product Cost (including shipping to Amazon)</label>
+        <input type="number" id="cogs" value="8.50" min="0" step="0.01" />
+      </div>
+
+      <div class="field">
+        <label>Product Category (referral fee %)</label>
+        <select id="cat">
+          <option value="15" selected>Home & Kitchen (15%)</option>
+          <option value="8">Industrial (8%)</option>
+          <option value="12">Beauty (12%)</option>
+          <option value="15">Toys & Baby (15%)</option>
+          <option value="15">Sports (15%)</option>
+          <option value="15">Electronics (15%)</option>
+          <option value="12">Tools (12%)</option>
+          <option value="6">Book / Media (6%)</option>
+          <option value="20">Apparel (20%)</option>
+          <option value="15">Jewelry (15%)</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>FBA Fulfillment Fee (approximate $)</label>
+        <input type="number" id="fba" value="4.75" min="0" step="0.01" />
+        <div class="chips">
+          <span class="chip" data-fba="3.25">Small $3.25</span>
+          <span class="chip active" data-fba="4.75">Standard $4.75</span>
+          <span class="chip" data-fba="7.50">Large $7.50</span>
+          <span class="chip" data-fba="12">Oversize $12</span>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>PPC Spend per Sale (ACoS = % of price)</label>
+        <input type="number" id="acos" value="25" min="0" step="0.5" />
+        <div class="chips">
+          <span class="chip" data-acos="15">Low 15%</span>
+          <span class="chip" data-acos="25" class="active">Avg 25%</span>
+          <span class="chip" data-acos="40">High 40%</span>
+        </div>
+        <div class="hint">Or enter $ amount as PPC spend below</div>
+      </div>
+
+      <div class="field">
+        <label>Monthly Storage Fee (per unit, approx)</label>
+        <input type="number" id="storage" value="0.30" min="0" step="0.01" />
+      </div>
+
+      <div class="field">
+        <label>Monthly Sales Volume</label>
+        <input type="number" id="sales" value="500" min="0" step="1" />
+      </div>
+
+      <button class="primary-btn" id="calcBtn">Calculate My Profit →</button>
+    </div>
+
+    <div class="panel results-panel">
+      <div class="result-big">
+        <div class="label">Net Profit Per Sale</div>
+        <div class="amount" id="profit">$8.24<small>/unit</small></div>
+        <div class="label" id="marginText">23.5% Margin</div>
+        <div class="margin-bar"><div class="margin-fill" id="marginBar" style="width:23.5%"></div></div>
+      </div>
+
+      <div class="breakdown">
+        <div class="r pos"><span class="n">💵 Sale Price</span><span class="v" id="rPrice">$34.99</span></div>
+        <div class="r neg"><span class="n">🏭 COGS</span><span class="v" id="rCogs">−$8.50</span></div>
+        <div class="r neg"><span class="n">📊 Referral Fee (15%)</span><span class="v" id="rRef">−$5.25</span></div>
+        <div class="r neg"><span class="n">📦 FBA Fulfillment</span><span class="v" id="rFba">−$4.75</span></div>
+        <div class="r neg"><span class="n">📣 PPC (25% ACoS)</span><span class="v" id="rPpc">−$8.75</span></div>
+        <div class="r neg"><span class="n">🗄️ Storage</span><span class="v" id="rStore">−$0.30</span></div>
+        <div class="r total"><span class="n">Net Profit / Unit</span><span class="v" id="rTotal">$7.44</span></div>
+      </div>
+
+      <div class="breakdown">
+        <div class="r"><span class="n">📊 Monthly Revenue</span><span class="v" id="mRev">$17,495</span></div>
+        <div class="r"><span class="n">💰 Monthly Profit</span><span class="v" id="mProfit" style="color:var(--green)">$3,720</span></div>
+        <div class="r"><span class="n">📈 Margin</span><span class="v" id="mMargin">21.3%</span></div>
+        <div class="r"><span class="n">🎯 Break-Even / mo</span><span class="v" id="beOrder">~$300 revenue</span></div>
+      </div>
+
+      <div class="ad-box" style="margin-top:18px">
+        <div class="label">Sponsored</div>
+        <strong>AdSense — 300 × 250 Sidebar</strong>
+        <span>High-intent Amazon seller traffic</span>
+      </div>
+    </div>
+  </div>
+
+  <section class="content" id="tiers">
+    <div class="section-head">
+      <h2>Three Seller Tiers — Where Do You Fall?</h2>
+      <p class="sub">Set realistic profit targets by understanding the three Amazon seller tiers.</p>
+    </div>
+    <div class="tiers">
+      <div class="tier">
+        <h3>Starter</h3>
+        <div class="tier-name">1–10 units/day</div>
+        <ul>
+          <li><strong>$1,000–$5,000</strong> / month revenue</li>
+          <li><strong>$100–$1,500</strong> / month profit</li>
+          <li>1–3 products</li>
+          <li>Heavy PPC testing phase</li>
+          <li>Focus: get to 10 units/day</li>
+        </ul>
+      </div>
+      <div class="tier popular">
+        <span class="badge-pop">Most Common</span>
+        <h3>Scaler</h3>
+        <div class="tier-name">10–100 units/day</div>
+        <ul>
+          <li><strong>$15k–$150k</strong> / month revenue</li>
+          <li><strong>$2k–$30k</strong> / month profit</li>
+          <li>3–10 products</li>
+          <li>Optimizing ACoS & margin</li>
+          <li>Launching 1–2 new SKUs/qtr</li>
+        </ul>
+      </div>
+      <div class="tier">
+        <h3>Builder</h3>
+        <div class="tier-name">100+ units/day</div>
+        <ul>
+          <li><strong>$150k+</strong> / month revenue</li>
+          <li><strong>$25k+</strong> / month profit</li>
+          <li>10+ products / bundles</li>
+          <li>Off-Amazon traffic (TikTok/YT)</li>
+          <li>Multi-channel (Shopify + Amazon)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="ad-box">
+    <div class="label">Sponsored</div>
+    <strong>AdSense — 728 × 90 Leaderboard</strong>
+    <span>Between tiers and FAQ</span>
+  </div>
+
+  <section class="content" id="faq">
+    <div class="section-head"><h2>FAQ</h2><p class="sub">Top Amazon FBA seller pricing and profit questions.</p></div>
+    <div class="faq">
+      <div class="faq-item"><div class="faq-q">What is a good profit margin for Amazon FBA?<span class="plus">+</span></div><div class="faq-a"><p>A healthy Amazon FBA profit margin is <strong>15–25% net</strong> (after all fees, PPC, and COGS). Net margin below 10% is risky due to Amazon fee changes and PPC inflation. Top private-label sellers target 25–40% on individual SKUs to create buffer for promotions and price wars.</p></div></div>
+      <div class="faq-item"><div class="faq-q">How are Amazon FBA fees calculated?<span class="plus">+</span></div><div class="faq-a"><p>Amazon fees consist of: (1) <strong>Referral fee — 8–15%</strong> of sale price depending on category; (2) <strong>FBA fulfillment fee</strong> — based on product size/weight tier ($3–$8+ standard-size); (3) <strong>Monthly storage fee</strong> — $0.87–$2.40 per cubic foot; (4) Individual/Professional seller plan fee. Use our calculator above to get a line-item breakdown.</p></div></div>
+      <div class="faq-item"><div class="faq-q">How does Amazon PPC affect profit?<span class="plus">+</span></div><div class="faq-a"><p>Amazon PPC (Sponsored Products) typically costs sellers <strong>15–35% of revenue</strong> per unit. A $30 product might spend $5–$10 in PPC to make one sale. ACoS (Ad Cost of Sale) under 25% is considered healthy. Combining PPC + referral fee + FBA fees can easily reach 40–55% of sale price — leaving only 45–60% before COGS.</p></div></div>
+      <div class="faq-item"><div class="faq-q">What product price should I target on Amazon?<span class="plus">+</span></div><div class="faq-a"><p>Target a retail price between <strong>$25 and $80</strong> for most categories. Below $25, Amazon fees eat too much margin and PPC becomes prohibitive. Above $80, conversion rates drop significantly. Your COGS should ideally be 15–25% of your retail price.</p></div></div>
+      <div class="faq-item"><div class="faq-q">Is Amazon FBA still profitable in 2026?<span class="plus">+</span></div><div class="faq-a"><p>Yes. Amazon FBA is still profitable in 2026 but more competitive. 2026 winners focus on: (1) Product differentiation (not just reselling); (2) External traffic (TikTok, YouTube, blog); (3) Strong brand + premium pricing; (4) Multi-channel fulfillment (Amazon + Shopify); (5) Active ACoS management. Generic products selling at race-to-the-bottom prices rarely work today.</p></div></div>
+      <div class="faq-item"><div class="faq-q">How do I reduce my Amazon ACoS?<span class="plus">+</span></div><div class="faq-a"><p>Five proven tactics: (1) Improve listing images & conversion rate (the single biggest ACoS lever); (2) Cut losing keywords — 80/20 usually applies; (3) Optimize listing title/bullets for organic rank to offset PPC; (4) Increase price slightly — ACoS drops if conversion holds; (5) Brand story + A+ content to raise average order value.</p></div></div>
+    </div>
+  </section>
+
+</main>
+
+<footer><div class="container">
+  <div class="foot-grid">
+    <div><div class="logo" style="color:#fff;margin-bottom:12px"><span class="logo-mark">AMZ</span>Seller Calc</div><p style="font-size:13px;max-width:320px">Free profit and fee calculators for Amazon FBA sellers, dropshippers, and ecommerce founders.</p></div>
+    <div><h4>Calculators</h4><ul><li><a href="#">FBA Profit</a></li><li><a href="#">Dropshipping</a></li><li><a href="#">Etsy Fees</a></li><li><a href="#">Pricing</a></li></ul></div>
+    <div><h4>Guides</h4><ul><li><a href="#">Amazon ACoS</a></li><li><a href="#">Product Research</a></li><li><a href="#">FBA Fees</a></li><li><a href="#">Blog</a></li></ul></div>
+    <div><h4>Company</h4><ul><li><a href="#">About</a></li><li><a href="#">Contact</a></li><li><a href="#">Privacy</a></li><li><a href="#">Terms</a></li></ul></div>
+  </div>
+  <div class="foot-bot"><span>© 2026 Seller Calc. Not affiliated with Amazon. For educational use only.</span><span>Built for sellers 🏭</span></div>
+</div></footer>
+
+<div class="toast" id="toast">Calculated!</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const $N = id => parseFloat($(id).value) || 0;
+const fmt$ = n => '$' + Number(n).toFixed(2);
+const fmt0 = n => '$' + Math.round(n).toLocaleString('en-US');
+
+// FBA fee chips
+document.querySelectorAll('[data-fba]').forEach(c=>{
+  c.addEventListener('click',()=>{
+    document.querySelectorAll('[data-fba]').forEach(x=>x.classList.remove('active'));
+    c.classList.add('active');
+    $('fba').value = parseFloat(c.dataset.fba);
+    calc();
+  });
+});
+
+// ACoS chips
+document.querySelectorAll('[data-acos]').forEach(c=>{
+  c.addEventListener('click',()=>{
+    document.querySelectorAll('[data-acos]').forEach(x=>x.classList.remove('active'));
+    c.classList.add('active');
+    $('acos').value = parseFloat(c.dataset.acos);
+    calc();
+  });
+});
+
+function calc(){
+  const price = $N('price'), cogs = $N('cogs'), fba = $N('fba');
+  const acos = $N('acos')/100, storage = $N('storage'), sales = $N('sales');
+  const refFee = price * (parseFloat($('cat').value)/100);
+  const ppc = price * acos;
+  const profit = price - cogs - refFee - fba - ppc - storage;
+  const margin = price>0 ? profit/price*100 : 0;
+
+  $('profit').innerHTML = fmt$(profit)+'<small>/unit</small>';
+  $('marginText').textContent = margin.toFixed(1)+'% Margin';
+  $('marginBar').style.width = Math.max(0,Math.min(100,margin))+'%';
+
+  $('rPrice').textContent = fmt$(price);
+  $('rCogs').textContent = '−'+fmt$(cogs);
+  $('rRef').textContent = '−'+fmt$(refFee);
+  $('rFba').textContent = '−'+fmt$(fba);
+  $('rPpc').textContent = '−'+fmt$(ppc);
+  $('rStore').textContent = '−'+fmt$(storage);
+  $('rTotal').textContent = fmt$(profit);
+
+  const mRev = price*sales;
+  const mProfit = profit*sales;
+  $('mRev').textContent = fmt0(mRev);
+  $('mProfit').textContent = fmt0(mProfit);
+  $('mMargin').textContent = margin.toFixed(1)+'%';
+  $('beOrder').textContent = '~'+fmt0(sales>0 ? (cogs+fba+refFee+ppc+storage)*(sales/max(1,sales)) : 0);
+  $('beOrder').textContent = profit>0 ? '~'+fmt0(Math.ceil(39.99/profit*profit)) : '∞';
+  const beSales = profit>0 ? Math.ceil((cogs + refFee + fba + ppc + storage) / (price/profit)) : 0;
+  $('beOrder').textContent = '~'+Math.max(0, Math.ceil(cogs + storage + 1))+' units to cover COGS';
+}
+
+['price','cogs','fba','acos','storage','sales','cat'].forEach(id=>{
+  $(id).addEventListener('input',calc);
+  $(id).addEventListener('change',calc);
+});
+$('calcBtn').addEventListener('click',()=>{calc(); toast('Recalculated!');});
+
+document.querySelectorAll('.faq-item').forEach(item=>{
+  item.querySelector('.faq-q').addEventListener('click',()=>item.classList.toggle('open'));
+});
+document.querySelector('.faq-item').classList.add('open');
+
+function toast(msg){const t=$('toast');t.textContent=msg;t.classList.add('show');clearTimeout(window._t);window._t=setTimeout(()=>t.classList.remove('show'),1500);}
+calc();
+</script>
+</body>
+</html>

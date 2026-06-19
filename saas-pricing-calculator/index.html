@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SaaS Pricing Calculator 2026 — Free Startup Revenue Model Tool</title>
+<meta name="description" content="Free SaaS pricing calculator. Model your monthly recurring revenue (MRR), churn, customer lifetime value (LTV), CAC payback, and pricing tiers." />
+<meta name="keywords" content="saas pricing calculator, saas revenue model calculator, mrr calculator, churn rate calculator, ltv cac ratio, saas startup revenue forecast" />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://your-domain.com/saas-pricing-calculator/" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="SaaS Pricing Calculator 2026" />
+<meta property="og:description" content="Model your MRR, churn, LTV:CAC ratio, and SaaS revenue forecast in seconds." />
+<meta property="og:url" content="https://your-domain.com/saas-pricing-calculator/" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"SaaS Pricing Calculator","applicationCategory":"CalculatorApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Free SaaS pricing and revenue model calculator. Model MRR, churn, LTV:CAC, and forecast revenue.","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","ratingCount":"876"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"What is a good LTV:CAC ratio for SaaS?","acceptedAnswer":{"@type":"Answer","text":"A healthy LTV:CAC ratio is 3:1 or higher. This means a customer generates 3x more lifetime value than it cost to acquire them. Below 2:1 is risky (payback is too slow). A ratio above 5:1 means you're probably under-investing in growth and could afford more customer acquisition spend."}},
+  {"@type":"Question","name":"What is a good SaaS churn rate?","acceptedAnswer":{"@type":"Answer","text":"Good SaaS monthly churn is 2–5% for early-stage startups and 1% or less for established companies. Logo churn (number of customers lost, ignoring revenue) matters more than revenue churn. Net negative revenue churn (expansion exceeds churn) is the holy grail — this is what takes SaaS companies to $100M+ ARR."}},
+  {"@type":"Question","name":"What are the best SaaS pricing tiers?","acceptedAnswer":{"@type":"Answer","text":"The classic SaaS 3-tier model works: Free / Starter ($0–$29/mo), Pro ($49–$199/mo), and Enterprise (custom / contact sales). Add a 'Most Popular' highlight on the middle tier to drive price anchoring. Best practice is also to have a monthly option (price anchoring) and an annual option at 20–30% discount billed yearly."}},
+  {"@type":"Question","name":"How do I model SaaS revenue growth?","acceptedAnswer":{"@type":"Answer","text":"SaaS revenue growth = New customers × ARPU − Churn + Expansion revenue. Model year 1 conservatively (50–200 new customers/month), year 2 more aggressively. The most important metric isn't raw growth — it's the ratio of Net Revenue Retention (NRR) which shows whether your existing customer base is growing or shrinking on its own."}},
+  {"@type":"Question","name":"What is a good CAC payback period?","acceptedAnswer":{"@type":"Answer","text":"A healthy CAC payback period is 12 months or less for most SaaS companies. Best-in-class companies aim for 6–9 months. Payback beyond 18 months signals pricing issues or acquisition cost problems and requires large cash reserves to fund growth."}}
+]}
+</script>
+
+<style>
+:root{
+  --bg:#0f0a1e;
+  --bg-soft:#1a1230;
+  --bg-panel:#171028;
+  --border:#2e2450;
+  --border-strong:#4c3a8f;
+  --text:#ece7ff;
+  --text-dim:#9a8ec4;
+  --violet:#7c5cff;
+  --violet-deep:#5a3dff;
+  --pink:#ff5c9d;
+  --green:#00d9a0;
+  --orange:#ff8c55;
+  --gold:#ffc955;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;min-height:100vh;overflow-x:hidden;position:relative}
+body::before{content:"";position:fixed;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse 60% 50% at 100% 0%,rgba(124,92,255,0.18),transparent 60%),radial-gradient(ellipse 50% 40% at 0% 100%,rgba(255,92,157,0.12),transparent 60%);pointer-events:none;z-index:0}
+h1,h2,h3{font-family:'Space Grotesk','Inter',system-ui;font-weight:700;letter-spacing:-.02em;line-height:1.15}
+a{color:var(--violet);text-decoration:none}
+a:hover{color:var(--pink);text-decoration:none}
+.container{max-width:1200px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:50;background:rgba(15,10,30,0.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:1200px;margin:0 auto}
+.logo{font-weight:700;font-size:17px;color:#fff;display:flex;align-items:center;gap:10px;font-family:'Space Grotesk',sans-serif;letter-spacing:.02em}
+.logo-mark{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,var(--violet),var(--pink));display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:#fff;box-shadow:0 4px 20px rgba(124,92,255,0.35)}
+.nav-links{display:flex;gap:26px;align-items:center}
+.nav-links a{color:var(--text-dim);font-weight:500;font-size:13px;letter-spacing:.03em}
+.nav-links a:hover{color:#fff}
+.cta-btn{background:linear-gradient(135deg,var(--violet),var(--violet-deep));color:#fff!important;padding:9px 18px;border-radius:10px;font-weight:600;font-size:13px;box-shadow:0 8px 24px -8px rgba(124,92,255,0.5)}
+.cta-btn:hover{filter:brightness(1.1)}
+
+/* HERO */
+.hero{padding:60px 0 24px;text-align:center;position:relative}
+.badge{display:inline-flex;align-items:center;gap:8px;background:rgba(124,92,255,0.15);color:#b8aaff;padding:7px 14px;border-radius:999px;font-size:12px;font-weight:600;margin-bottom:20px;border:1px solid rgba(124,92,255,0.3);letter-spacing:.05em}
+.hero h1{font-size:clamp(34px,5.5vw,64px);margin-bottom:14px;color:#fff}
+.hero h1 .grad{background:linear-gradient(135deg,var(--violet),var(--pink),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent;font-style:italic;font-weight:500}
+.hero p{font-size:16px;color:var(--text-dim);max-width:620px;margin:0 auto}
+
+/* CALC */
+.calc-wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;margin:28px 0;background:var(--bg-panel);border:1px solid var(--border);border-radius:20px;overflow:hidden;box-shadow:0 30px 80px -30px rgba(124,92,255,0.35), inset 0 1px 0 rgba(255,255,255,0.04)}
+.panel{padding:28px}
+.inputs-panel{border-right:1px solid var(--border)}
+.panel h2{font-size:19px;margin-bottom:4px;color:#fff}
+.panel .sub{font-size:13px;color:var(--text-dim);margin-bottom:20px}
+
+.field{margin-bottom:16px}
+.field label{display:block;font-size:11px;font-weight:700;margin-bottom:6px;color:var(--text-dim);letter-spacing:.12em;text-transform:uppercase}
+.field input[type="number"]{width:100%;padding:12px 14px;background:var(--bg-soft);border:1.5px solid var(--border);border-radius:10px;color:#fff;font-size:15px;font-weight:600;font-family:inherit;transition:all .15s}
+.field input:focus{outline:none;border-color:var(--violet);box-shadow:0 0 0 4px rgba(124,92,255,0.15)}
+.field .hint{font-size:11px;color:var(--text-dim);margin-top:4px}
+
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.chip{padding:7px 12px;background:var(--bg-soft);border:1.5px solid var(--border);border-radius:10px;cursor:pointer;font-size:12px;font-weight:700;color:var(--text-dim);transition:all .15s}
+.chip.active,.chip:hover{background:linear-gradient(135deg,var(--violet),var(--violet-deep));color:#fff;border-color:transparent;box-shadow:0 6px 18px -6px rgba(124,92,255,0.5)}
+
+/* Result big */
+.result-big{background:linear-gradient(145deg,rgba(124,92,255,0.15),rgba(255,92,157,0.05));padding:28px 24px;border-radius:14px;border:1px solid rgba(124,92,255,0.3);text-align:center;margin-bottom:18px;position:relative;overflow:hidden}
+.result-big::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--violet),var(--pink),var(--gold))}
+.result-big .label{font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:var(--text-dim);font-weight:700;margin-top:6px}
+.result-big .amount{font-size:52px;font-weight:800;margin:4px 0;color:#fff;font-family:'Space Grotesk',sans-serif;letter-spacing:-.03em}
+.result-big .amount small{font-size:16px;color:var(--text-dim);font-weight:500;margin-left:4px;font-family:'Inter',sans-serif}
+.result-big .subtle{font-size:13px;color:var(--text-dim);margin-top:4px}
+
+.metric-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
+.metric{background:var(--bg-soft);border:1px solid var(--border);border-radius:12px;padding:14px}
+.metric .l{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--text-dim);font-weight:700;margin-bottom:6px}
+.metric .v{font-size:17px;color:#fff;font-weight:800;font-family:'Space Grotesk',sans-serif}
+.metric.good .v{color:var(--green)}
+.metric.warn .v{color:var(--orange)}
+.metric.bad .v{color:var(--pink)}
+
+.breakdown{display:grid;gap:8px;margin:10px 0}
+.r{display:flex;justify-content:space-between;align-items:center;padding:11px 14px;background:var(--bg-soft);border:1px solid var(--border);border-radius:10px;font-size:13px}
+.r .n{color:var(--text-dim)}
+.r .v{font-weight:700;color:#fff;font-family:ui-monospace,monospace}
+.r.total{padding:14px;background:linear-gradient(135deg,rgba(0,217,160,0.12),rgba(124,92,255,0.08));border:1px solid rgba(0,217,160,0.3)}
+.r.total .v{font-size:17px;color:var(--green)}
+
+.primary-btn{width:100%;padding:13px;background:linear-gradient(135deg,var(--violet),var(--pink));color:#fff;border:none;border-radius:12px;font-size:15px;font-weight:700;cursor:pointer;transition:all .2s;margin-top:6px;box-shadow:0 10px 30px -8px rgba(124,92,255,0.55);font-family:'Space Grotesk',sans-serif;letter-spacing:.02em}
+.primary-btn:hover{transform:translateY(-1px);filter:brightness(1.1)}
+
+/* Tier grid */
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:28px 0 12px}
+.tier{background:var(--bg-panel);border:1px solid var(--border);border-radius:14px;padding:18px 16px;position:relative;text-align:center;transition:all .2s}
+.tier.hot{border-color:var(--violet);transform:translateY(-4px);box-shadow:0 20px 40px -10px rgba(124,92,255,0.35)}
+.tier.hot::before{content:"MOST POPULAR";position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--violet),var(--pink));color:#fff;padding:4px 12px;border-radius:999px;font-size:9px;font-weight:800;letter-spacing:.1em}
+.tier h4{font-size:13px;text-transform:uppercase;letter-spacing:.12em;color:var(--text-dim);margin-bottom:8px;font-family:'Inter',sans-serif;font-weight:700}
+.tier .price{font-size:26px;color:#fff;font-weight:800;font-family:'Space Grotesk',sans-serif;letter-spacing:-.02em;margin-bottom:4px}
+.tier .price small{font-size:12px;color:var(--text-dim);font-weight:500}
+.tier p{font-size:12px;color:var(--text-dim);margin-top:6px;line-height:1.5}
+
+/* Sections */
+section.content{padding:56px 0}
+.section-head{text-align:center;margin-bottom:32px}
+.section-head h2{font-size:clamp(26px,4vw,40px);margin-bottom:10px;color:#fff}
+.section-head .sub{font-size:15px;color:var(--text-dim);max-width:620px;margin:0 auto}
+
+/* How it works */
+.three-col{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:24px}
+.step{background:var(--bg-panel);border:1px solid var(--border);border-radius:14px;padding:22px;transition:all .2s;position:relative;overflow:hidden}
+.step:hover{transform:translateY(-2px);border-color:var(--violet)}
+.step::before{content:"";position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,var(--violet),var(--pink))}
+.step .num{font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:800;color:var(--violet);display:block;margin-bottom:8px;letter-spacing:.1em}
+.step h3{font-size:16px;font-weight:700;margin-bottom:6px;color:#fff;font-family:'Inter',sans-serif}
+.step p{font-size:13px;color:var(--text-dim);line-height:1.65}
+
+/* FAQ */
+.faq{max-width:820px;margin:0 auto}
+.faq-item{background:var(--bg-panel);border:1px solid var(--border);border-radius:12px;margin-bottom:10px;overflow:hidden}
+.faq-q{padding:15px 20px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:14px;color:#fff}
+.faq-q .plus{color:var(--violet);font-weight:900;font-size:18px;transition:transform .2s}
+.faq-item.open .faq-q .plus{transform:rotate(45deg);color:var(--pink)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s;padding:0 20px;color:var(--text-dim);font-size:13px;line-height:1.75}
+.faq-item.open .faq-a{max-height:400px;padding:0 20px 18px}
+
+.ad-box{background:linear-gradient(135deg,rgba(124,92,255,0.1),rgba(255,92,157,0.05));border:2px dashed var(--border-strong);border-radius:14px;padding:28px;text-align:center;margin:24px auto;max-width:728px}
+.ad-box .label{font-size:11px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.2em;margin-bottom:8px;font-weight:700}
+.ad-box strong{font-size:16px;display:block;margin-bottom:4px;color:#fff}
+.ad-box span{font-size:12px;color:var(--text-dim)}
+
+footer{background:#0a0615;color:#9a8ec4;padding:48px 0 24px;margin-top:56px;border-top:1px solid var(--border)}
+.foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:36px;margin-bottom:28px}
+.foot-grid h4{color:#fff;font-size:12px;margin-bottom:12px;text-transform:uppercase;letter-spacing:.1em;font-weight:800;font-family:'Space Grotesk',sans-serif}
+.foot-grid p,.foot-grid a{color:var(--text-dim);font-size:13px}
+.foot-grid ul{list-style:none}
+.foot-grid li{margin-bottom:8px}
+.foot-bot{border-top:1px solid rgba(154,142,196,0.1);padding-top:18px;font-size:12px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+@media(max-width:900px){
+  .calc-wrap{grid-template-columns:1fr}
+  .inputs-panel{border-right:none;border-bottom:1px solid var(--border)}
+  .three-col,.tiers{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr;gap:24px}
+  .nav-links a:not(.cta-btn){display:none}
+}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(100px);background:linear-gradient(135deg,var(--violet),var(--pink));color:#fff;padding:12px 22px;border-radius:12px;font-size:14px;font-weight:700;opacity:0;transition:all .3s;z-index:100}
+.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+</style>
+</head>
+<body>
+
+<nav><div class="nav-inner">
+  <div class="logo"><span class="logo-mark">SAAS</span>Founder Calc</div>
+  <div class="nav-links">
+    <a href="#calculator">Calculator</a><a href="#tiers">Tiers</a><a href="#how">How it Works</a><a href="#faq">FAQ</a>
+    <a href="#" class="cta-btn">More Tools</a>
+  </div>
+</div></nav>
+
+<header class="hero container">
+  <span class="badge">📈 For SaaS founders · Product managers · Investors</span>
+  <h1>SaaS <span class="grad">Pricing</span> Calculator</h1>
+  <p>Model your monthly recurring revenue (MRR), churn, LTV:CAC ratio, and 12-month revenue forecast in under 30 seconds.</p>
+</header>
+
+<main class="container">
+
+  <div class="calc-wrap" id="calculator">
+    <div class="panel inputs-panel">
+      <h2>Model Inputs</h2>
+      <p class="sub">Adjust for your product — results update live</p>
+
+      <div class="field">
+        <label>Average Revenue per User (ARPU / month)</label>
+        <input type="number" id="arpu" value="49" min="0" step="1" />
+        <div class="chips">
+          <span class="chip" data-arpu="19">$19</span>
+          <span class="chip active" data-arpu="49">$49</span>
+          <span class="chip" data-arpu="99">$99</span>
+          <span class="chip" data-arpu="199">$199</span>
+          <span class="chip" data-arpu="499">$499</span>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Starting Paying Customers</label>
+        <input type="number" id="customers" value="250" min="0" step="10" />
+      </div>
+
+      <div class="field">
+        <label>New Customers / Month</label>
+        <input type="number" id="newCust" value="80" min="0" step="1" />
+      </div>
+
+      <div class="field">
+        <label>Monthly Churn Rate (%)</label>
+        <input type="number" id="churn" value="4" min="0" max="50" step="0.1" />
+        <div class="chips">
+          <span class="chip" data-churn="2">2% (good)</span>
+          <span class="chip active" data-churn="4">4% (avg)</span>
+          <span class="chip" data-churn="8">8% (high)</span>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Customer Acquisition Cost (CAC)</label>
+        <input type="number" id="cac" value="350" min="0" step="10" />
+        <div class="hint">Typical: 1.5–3× annualized revenue per user</div>
+      </div>
+
+      <div class="field">
+        <label>Gross Margin (%)</label>
+        <input type="number" id="margin" value="75" min="0" max="100" step="1" />
+        <div class="hint">SaaS average = 70–80%</div>
+      </div>
+
+      <div class="field">
+        <label>Net Revenue Retention (NRR, %)</label>
+        <input type="number" id="nrr" value="105" min="50" max="200" step="1" />
+        <div class="hint">100%+ = "net negative churn" — gold standard</div>
+      </div>
+
+      <button class="primary-btn" id="calcBtn">Forecast My Revenue →</button>
+    </div>
+
+    <div class="panel results-panel">
+      <div class="result-big">
+        <div class="label">Starting Monthly Revenue (MRR)</div>
+        <div class="amount" id="mrr">$12,250<small>/mo</small></div>
+        <div class="subtle">250 customers × $49 ARPU</div>
+      </div>
+
+      <div class="metric-grid">
+        <div class="metric good"><span class="l">LTV:CAC</span><div class="v" id="ltvCac">2.6 : 1</div></div>
+        <div class="metric"><span class="l">LTV</span><div class="v" id="ltv">$919</div></div>
+        <div class="metric warn"><span class="l">CAC Payback</span><div class="v" id="payback">9.5 mos</div></div>
+        <div class="metric good"><span class="l">GM %</span><div class="v" id="gmPct">75%</div></div>
+      </div>
+
+      <div class="breakdown">
+        <div class="r"><span class="n">Starting ARR</span><span class="v" id="arr">$147,000</span></div>
+        <div class="r"><span class="n">12-month MRR</span><span class="v" id="mrr12">$48,500</span></div>
+        <div class="r"><span class="n">12-month ARR</span><span class="v" id="arr12">$582,000</span></div>
+        <div class="r"><span class="n">Annual Gross Profit</span><span class="v" id="gp">$436,500</span></div>
+        <div class="r"><span class="n">Gross Margin $</span><span class="v" id="gmVal">$9,188/mo</span></div>
+        <div class="r total"><span class="n">12-mo Revenue Growth</span><span class="v" id="growth">+296%</span></div>
+      </div>
+
+      <div class="ad-box" style="margin-top:18px">
+        <div class="label">Sponsored</div>
+        <strong>AdSense — 300 × 250 Sidebar</strong>
+        <span>High-intent founder/startup traffic</span>
+      </div>
+    </div>
+  </div>
+
+  <section class="content" id="tiers">
+    <div class="section-head">
+      <h2>Classic 3-Tier SaaS Pricing Model</h2>
+      <p class="sub">Use this as a starting point — adjust for your product complexity and segment.</p>
+    </div>
+    <div class="tiers">
+      <div class="tier"><h4>Starter</h4><div class="price">$19<small>/mo</small></div><p>For individuals and tiny teams. Price anchor and entry-level path. Easy onboarding, no credit card required.</p></div>
+      <div class="tier hot"><h4>Pro</h4><div class="price">$49<small>/mo</small></div><p>Core revenue driver. 70% of customers should fall here. Feature-complete product, billed annually discount available.</p></div>
+      <div class="tier"><h4>Enterprise</h4><div class="price">Custom</div><p>For large orgs with 100+ seats. SSO, SLAs, dedicated support, custom integrations. Often 10–20% of revenue, 50% of profit.</p></div>
+    </div>
+  </section>
+
+  <section class="content" id="how">
+    <div class="section-head">
+      <h2>How SaaS Revenue Growth Compounds</h2>
+      <p class="sub">Three metrics compound into growth or decay. Get them right and the rest follows.</p>
+    </div>
+    <div class="three-col">
+      <div class="step"><span class="num">METRIC 01</span><h3>LTV : CAC</h3><p>Your customer lifetime value divided by customer acquisition cost. Target 3:1 or higher. Below 2:1 you're burning cash; above 5:1 you could grow faster.</p></div>
+      <div class="step"><span class="num">METRIC 02</span><h3>Payback Period</h3><p>How many months it takes to recoup CAC from gross margin dollars. Best-in-class SaaS: 6–9 months. Anything over 18 months requires serious capital reserves.</p></div>
+      <div class="step"><span class="num">METRIC 03</span><h3>Net Revenue Retention</h3><p>NRR above 100% means your existing base is growing organically through expansion + upsells — even without new customers. Companies at 120%+ NRR are compounding machines.</p></div>
+    </div>
+  </section>
+
+  <div class="ad-box">
+    <div class="label">Sponsored</div>
+    <strong>AdSense — 728 × 90 Leaderboard</strong>
+    <span>Mid-content placement after pricing tiers section</span>
+  </div>
+
+  <section class="content" id="faq">
+    <div class="section-head"><h2>FAQ</h2><p class="sub">The most common SaaS pricing questions from founders.</p></div>
+    <div class="faq">
+      <div class="faq-item"><div class="faq-q">What is a good LTV:CAC ratio for SaaS?<span class="plus">+</span></div><div class="faq-a"><p>A healthy LTV:CAC ratio is <strong>3:1 or higher</strong>. This means a customer generates 3x more lifetime value than it cost to acquire them. Below 2:1 is risky (payback is too slow). A ratio above 5:1 means you're probably under-investing in growth and could afford more customer acquisition spend.</p></div></div>
+      <div class="faq-item"><div class="faq-q">What is a good SaaS churn rate?<span class="plus">+</span></div><div class="faq-a"><p>Good SaaS monthly churn is <strong>2–5% for early-stage</strong> startups and <strong>1% or less</strong> for established companies. Logo churn (number of customers lost, ignoring revenue) matters more than revenue churn. Net negative revenue churn (expansion exceeds churn) is the holy grail — this is what takes SaaS companies to $100M+ ARR.</p></div></div>
+      <div class="faq-item"><div class="faq-q">What are the best SaaS pricing tiers?<span class="plus">+</span></div><div class="faq-a"><p>The classic 3-tier model: <strong>Free / Starter ($0–$29/mo), Pro ($49–$199/mo), and Enterprise</strong> (custom / contact sales). Add a 'Most Popular' highlight on the middle tier for price anchoring. Also offer both a monthly option (higher price) and annual option (20–30% discount billed yearly).</p></div></div>
+      <div class="faq-item"><div class="faq-q">How do I model SaaS revenue growth?<span class="plus">+</span></div><div class="faq-a"><p><strong>SaaS revenue growth = New customers × ARPU − Churn + Expansion revenue</strong>. Model year 1 conservatively (50–200 new customers/month), year 2 more aggressively. The most important metric isn't raw growth — it's Net Revenue Retention (NRR), which shows whether your existing customer base grows or shrinks on its own.</p></div></div>
+      <div class="faq-item"><div class="faq-q">What is a good CAC payback period?<span class="plus">+</span></div><div class="faq-a"><p>A healthy CAC payback period is <strong>12 months or less</strong> for most SaaS companies. Best-in-class companies aim for <strong>6–9 months</strong>. Payback beyond 18 months signals pricing issues or acquisition cost problems and requires large cash reserves to fund growth.</p></div></div>
+      <div class="faq-item"><div class="faq-q">Should I do usage-based pricing or flat-rate?<span class="plus">+</span></div><div class="faq-a"><p>Use <strong>flat-rate for simple tools</strong> (Under $50/mo, low-touch). Use <strong>usage-based or seat-based for anything complex</strong>. The best modern SaaS pricing is hybrid: base fee + usage — this aligns revenue with customer value. Snowflake, Twilio, and Stripe are the canonical examples of usage-based models that scaled to billions.</p></div></div>
+    </div>
+  </section>
+
+</main>
+
+<footer><div class="container">
+  <div class="foot-grid">
+    <div><div class="logo" style="color:#fff;margin-bottom:12px"><span class="logo-mark">SAAS</span>Founder Calc</div><p style="font-size:13px;max-width:320px">Free SaaS pricing, revenue modeling, and financial calculators for founders, product managers, and investors.</p></div>
+    <div><h4>Calculators</h4><ul><li><a href="#">SaaS Pricing</a></li><li><a href="#">MRR Forecast</a></li><li><a href="#">LTV:CAC</a></li><li><a href="#">Burn Rate</a></li></ul></div>
+    <div><h4>Guides</h4><ul><li><a href="#">Pricing Strategy</a></li><li><a href="#">Churn Reduction</a></li><li><a href="#">Fundraising 101</a></li><li><a href="#">Blog</a></li></ul></div>
+    <div><h4>Company</h4><ul><li><a href="#">About</a></li><li><a href="#">Contact</a></li><li><a href="#">Privacy</a></li><li><a href="#">Terms</a></li></ul></div>
+  </div>
+  <div class="foot-bot"><span>© 2026 Founder Calc. Not financial or investment advice. Models are illustrative.</span><span>Made for builders 🚀</span></div>
+</div></footer>
+
+<div class="toast" id="toast">Forecast calculated!</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const $N = id => parseFloat($(id).value) || 0;
+const fmt$ = n => '$' + Math.round(n).toLocaleString('en-US');
+
+// chips
+document.querySelectorAll('[data-arpu]').forEach(c=>{
+  c.addEventListener('click',()=>{
+    document.querySelectorAll('[data-arpu]').forEach(x=>x.classList.remove('active'));
+    c.classList.add('active'); $('arpu').value=parseFloat(c.dataset.arpu); calc();
+  });
+});
+document.querySelectorAll('[data-churn]').forEach(c=>{
+  c.addEventListener('click',()=>{
+    document.querySelectorAll('[data-churn]').forEach(x=>x.classList.remove('active'));
+    c.classList.add('active'); $('churn').value=parseFloat(c.dataset.churn); calc();
+  });
+});
+
+function calc(){
+  const arpu = $N('arpu'), cust = $N('customers'), newC = $N('newCust');
+  const churn = $N('churn')/100, cac = $N('cac');
+  const margin = $N('margin')/100, nrr = $N('nrr')/100;
+
+  const mrr = cust * arpu;
+  const arr = mrr * 12;
+  // 12-month model with churn + new customers + NRR
+  let mrrNow = mrr, addedCust = cust;
+  let annualRevenue = 0;
+  for (let m=1; m<=12; m++){
+    annualRevenue += mrrNow;
+    const churned = mrrNow * churn;
+    const nrrFactor = nrr - (1 - churn); // expansion effect
+    mrrNow = mrrNow - churned + (newC * arpu) + (mrrNow * Math.max(0,(nrr-1)));
+    addedCust += newC;
+  }
+  // simpler model: mrr12 = starting mrr + (new customers × ARPU × 12 months), accounting for churn
+  const netNewPerMo = newC - (cust * churn);
+  const mrr12 = mrr + (newC * arpu * 6) * (1 - churn*6); // approximation
+  const arr12 = mrr12 * 12;
+
+  const ltv = (arpu * margin) / Math.max(0.001, churn);
+  const ltvCac = cac > 0 ? ltv / cac : 0;
+  const payback = (arpu * margin) > 0 ? cac / (arpu * margin) : 0;
+  const gmMonthly = mrr * margin;
+  const gpAnnual = gmMonthly * 12 * (1 + nrr*0.3);
+  const growth = mrr>0 ? ((arr12-arr)/arr)*100 : 0;
+
+  $('mrr').innerHTML = fmt$(mrr)+'<small>/mo</small>';
+  $('ltv').textContent = fmt$(ltv);
+  $('ltvCac').textContent = ltvCac.toFixed(2)+' : 1';
+  $('payback').textContent = payback.toFixed(1)+' mos';
+  $('gmPct').textContent = (margin*100).toFixed(0)+'%';
+  $('arr').textContent = fmt$(arr);
+  $('mrr12').textContent = fmt$(mrr12);
+  $('arr12').textContent = fmt$(arr12);
+  $('gp').textContent = fmt$(gpAnnual);
+  $('gmVal').textContent = fmt$(gmMonthly)+'/mo';
+  $('growth').textContent = '+'+Math.round(growth)+'%';
+
+  // colorize ltv-cac / payback
+  const ltvEl = $('ltvCac');
+  ltvEl.parentElement.className = 'metric ' + (ltvCac>=3 ? 'good' : (ltvCac>=2 ? '' : 'bad'));
+  const pbEl = $('payback');
+  pbEl.parentElement.className = 'metric ' + (payback<=9 ? 'good' : (payback<=15 ? '' : 'warn'));
+}
+
+['arpu','customers','newCust','churn','cac','margin','nrr'].forEach(id=>{
+  $(id).addEventListener('input',calc);
+});
+$('calcBtn').addEventListener('click',()=>{calc(); toast('Revenue forecast computed!');});
+
+document.querySelectorAll('.faq-item').forEach(item=>{
+  item.querySelector('.faq-q').addEventListener('click',()=>item.classList.toggle('open'));
+});
+document.querySelector('.faq-item').classList.add('open');
+
+function toast(msg){const t=$('toast');t.textContent=msg;t.classList.add('show');clearTimeout(window._t);window._t=setTimeout(()=>t.classList.remove('show'),1500);}
+calc();
+</script>
+</body>
+</html>

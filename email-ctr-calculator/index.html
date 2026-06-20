@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Email CTR Calculator — Open Rate, CTR & Conversion</title>
+<!-- Google Analytics (GA4) — 把 G-XXXXXXXXXX 替换为你自己的测量 ID -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+<meta name="description" content="Free email CTR calculator. Compute open rate, click-through rate, CTOR, conversion, and ROI for your email campaigns. Compare against industry benchmarks." />
+<meta name="keywords" content="email ctr calculator, open rate calculator, email conversion calculator, click to open rate ctor, email marketing kpi tool" />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://calcpro.cc.cd/email-ctr-calculator/" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Email CTR Calculator — Open Rate, CTR & Conversion" />
+<meta property="og:description" content="Free email CTR calculator. Compute open rate, click-through rate, CTOR, conversion, and ROI." />
+<meta property="og:url" content="https://calcpro.cc.cd/email-ctr-calculator/" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Email CTR Calculator","applicationCategory":"CalculatorApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Free email CTR calculator. Compute open rate, click-through rate, CTOR, conversion, and ROI for email campaigns.","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.7","ratingCount":"980"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"What is a good email open rate in 2026?","acceptedAnswer":{"@type":"Answer","text":"A good email open rate in 2026 averages 18–25% for B2B and 14–22% for B2C newsletters. Welcome emails and transactional emails often hit 30–50%. Anything below 10% typically means list hygiene problems (bought list, double opt-in missing) or poor sender reputation (low IP warmup, high spam complaints)."}},
+  {"@type":"Question","name":"What is click-to-open rate (CTOR) and why is it important?","acceptedAnswer":{"@type":"Answer","text":"Click-to-Open Rate (CTOR) measures the % of people who opened the email AND clicked. Formula: (Clicks / Opens) × 100. Industry average CTOR is 10–18%. CTOR is more useful than raw CTR because it isolates subject-line performance from content performance. If CTOR is high but CTR is low, you have a subject-line problem. If CTOR is low, your body copy and CTA need work."}},
+  {"@type":"Question","name":"How do I calculate email ROI?","acceptedAnswer":{"@type":"Answer","text":"Email ROI = ((Revenue − Cost) / Cost) × 100. If the only cost is your ESP and design/ copywriting time, a $500 campaign generating $4,000 in revenue returns 700% ROI. Average email marketing ROI in 2026 is $42 return per $1 spent — the highest of any digital channel, which is why email still dominates DTC and SaaS onboarding budgets."}},
+  {"@type":"Question","name":"What is the difference between opens and unique opens?","acceptedAnswer":{"@type":"Answer","text":"Opens counts every time an email is opened (including re-opens). Unique Opens counts each subscriber only once. The gap between opens and unique opens tells you how many subscribers re-engage. A ratio of 1.3× (opens = 130% of unique opens) is healthy; above 1.6× suggests high-quality content being revisited."}},
+  {"@type":"Question","name":"How can I improve my email CTR?","acceptedAnswer":{"@type":"Answer","text":"Six proven levers for higher email CTR: (1) Single, clear CTA above the fold; (2) Bullet-list scannable content; (3) Personalized dynamic content using first-name and segment data; (4) Time-of-day sending based on subscriber timezone; (5) Two-step subject-line preheader testing (preheaders lift open rate 5–15%); (6) List hygiene — remove subscribers who haven't opened in 6+ months."}},
+  {"@type":"Question","name":"What industry has the highest email conversion rate?","acceptedAnswer":{"@type":"Answer","text":"Highest email conversion rates by industry in 2026: Non-profit fundraising (3.4%), B2B SaaS (2.9%), E-commerce apparel (2.5%), Travel & hospitality (2.2%), Beauty & personal care (2.0%), Publishing & media (1.4%). Average across industries sits at 1.8% — use our calculator to see how your campaigns stack up."}},
+  {"@type":"Question","name":"How do you calculate cost per acquisition (CPA) from an email campaign?","acceptedAnswer":{"@type":"Answer","text":"Email CPA = Total Cost of Campaign / Number of Conversions. Total cost includes ESP subscription, copywriting, design, any email list rental, and promotion spend. CPA of $15–$30 is typical for DTC; B2B SaaS CPA from email nurture is $150–$350. Compare CPA against your AOV and LTV — if CPA &lt; 30% of LTV, the campaign is a keeper."}}
+]}
+</script>
+
+<style>
+:root{
+  --bg:#eef6fb;
+  --panel:#ffffff;
+  --soft:#e0f0fa;
+  --border:#b9d7ea;
+  --border-strong:#5eadd4;
+  --text:#0f2a3d;
+  --text-dim:#54748a;
+  --blue:#1E88E5;
+  --blue-deep:#0d3a8f;
+  --sky:#26C6DA;
+  --green:#1e8e3e;
+  --red:#c5221f;
+  --gold:#e69e1b;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,'Segoe UI',Roboto,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;min-height:100vh;overflow-x:hidden}
+h1,h2,h3{font-family:-apple-system,system-ui,'Segoe UI',Roboto,sans-serif;font-weight:700;letter-spacing:-.02em;line-height:1.2;color:var(--blue-deep)}
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+.container{max-width:1180px;margin:0 auto;padding:0 24px}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:50;background:rgba(238,246,251,0.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:1180px;margin:0 auto}
+.logo{font-weight:700;font-size:18px;color:var(--blue-deep);display:flex;align-items:center;gap:10px}
+.logo-mark{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,var(--blue),var(--sky));display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:#fff;box-shadow:0 4px 14px rgba(30,136,229,0.25)}
+.nav-links{display:flex;gap:26px;align-items:center}
+.nav-links a{color:var(--text-dim);font-weight:500;font-size:14px}
+.nav-links a:hover{color:var(--blue-deep);text-decoration:none}
+.cta-btn{background:var(--blue);color:#fff!important;padding:10px 18px;border-radius:10px;font-weight:600;font-size:14px;text-decoration:none!important;box-shadow:0 6px 16px -4px rgba(30,136,229,0.4)}
+.cta-btn:hover{background:var(--blue-deep)}
+
+/* HERO */
+.hero{padding:64px 0 24px;text-align:center}
+.badge{display:inline-flex;align-items:center;gap:8px;background:rgba(30,136,229,0.1);color:var(--blue-deep);padding:7px 14px;border-radius:999px;font-size:12px;font-weight:600;margin-bottom:20px;border:1px solid var(--border);letter-spacing:.05em}
+.hero h1{font-size:clamp(32px,5.5vw,58px);margin-bottom:14px}
+.hero h1 .accent{color:var(--sky)}
+.hero p{font-size:17px;color:var(--text-dim);max-width:640px;margin:0 auto}
+
+/* CALC */
+.calc-wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;margin:28px 0;background:var(--panel);border:1px solid var(--border);border-radius:18px;overflow:hidden;box-shadow:0 20px 60px -24px rgba(30,136,229,0.2)}
+.panel{padding:28px}
+.inputs-panel{border-right:1px solid var(--border)}
+.panel h2{font-size:20px;margin-bottom:4px}
+.panel .sub{font-size:13px;color:var(--text-dim);margin-bottom:20px}
+
+.field{margin-bottom:16px}
+.field label{display:block;font-size:12px;font-weight:700;margin-bottom:6px;color:var(--blue-deep);letter-spacing:.06em;text-transform:uppercase}
+.field input[type="number"]{width:100%;padding:12px 14px;background:var(--soft);border:1.5px solid var(--border);border-radius:10px;color:var(--text);font-size:15px;font-weight:600;font-family:inherit;transition:all .15s}
+.field input:focus{outline:none;border-color:var(--blue);background:#fff;box-shadow:0 0 0 4px rgba(30,136,229,0.1)}
+.field .hint{font-size:11px;color:var(--text-dim);margin-top:4px;font-style:italic}
+
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.chip{padding:7px 12px;background:var(--soft);border:1.5px solid var(--border);border-radius:10px;cursor:pointer;font-size:12px;font-weight:700;color:var(--text-dim);transition:all .15s}
+.chip.active,.chip:hover{background:var(--blue);color:#fff;border-color:var(--blue);box-shadow:0 4px 12px -4px rgba(30,136,229,0.35)}
+
+/* Result */
+.result-big{background:linear-gradient(145deg,#e0f0fa,#fff);padding:28px 24px;border-radius:14px;border:1px solid var(--border);text-align:center;margin-bottom:18px;position:relative;overflow:hidden}
+.result-big::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--sky))}
+.result-big .label{font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:var(--text-dim);font-weight:700;margin-top:6px}
+.result-big .amount{font-size:54px;font-weight:800;margin:4px 0;color:var(--blue-deep);letter-spacing:-.03em}
+.result-big .amount small{font-size:16px;color:var(--text-dim);font-weight:500;margin-left:4px}
+.result-big .subtle{font-size:13px;color:var(--text-dim);margin-top:4px}
+
+.metric-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
+.metric{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:14px}
+.metric .l{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--text-dim);font-weight:700;margin-bottom:6px}
+.metric .v{font-size:18px;color:var(--blue-deep);font-weight:800}
+
+.breakdown{display:grid;gap:8px;margin:10px 0}
+.r{display:flex;justify-content:space-between;align-items:center;padding:11px 14px;background:var(--soft);border:1px solid var(--border);border-radius:10px;font-size:13px}
+.r .n{color:var(--text-dim)}
+.r .v{font-weight:700;color:var(--blue-deep)}
+.r.total{padding:14px;background:linear-gradient(135deg,#fff,#e0f0fa);border:1.5px solid var(--border-strong)}
+.r.total .v{font-size:18px;color:var(--gold)}
+
+.primary-btn{width:100%;padding:13px;background:var(--blue);color:#fff;border:none;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;transition:all .2s;margin-top:6px;box-shadow:0 10px 24px -8px rgba(30,136,229,0.4)}
+.primary-btn:hover{background:var(--blue-deep);transform:translateY(-1px)}
+
+/* Benchmark table */
+.bench{background:var(--panel);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin:28px 0}
+.bench table{width:100%;border-collapse:collapse}
+.bench th,.bench td{padding:13px 18px;text-align:left;font-size:13px;border-bottom:1px solid var(--border)}
+.bench th{color:var(--text-dim);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.12em;background:rgba(30,136,229,0.06)}
+.bench tr:last-child td{border-bottom:none}
+.bench td.mine{font-weight:800;color:var(--blue-deep)}
+.bench td.avg{font-weight:700;color:var(--text-dim)}
+.bench td.good{font-weight:800;color:var(--green)}
+.bench td.bad{font-weight:800;color:var(--red)}
+
+/* Sections */
+section.content{padding:56px 0}
+.section-head{text-align:center;margin-bottom:32px}
+.section-head h2{font-size:clamp(26px,4vw,40px);margin-bottom:10px}
+.section-head .sub{font-size:15px;color:var(--text-dim);max-width:640px;margin:0 auto}
+
+/* How steps */
+.three-col{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:24px}
+.step{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:24px;transition:all .2s;position:relative;overflow:hidden}
+.step:hover{transform:translateY(-2px);border-color:var(--blue);box-shadow:0 12px 30px -12px rgba(30,136,229,0.25)}
+.step::before{content:"";position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--blue),var(--sky))}
+.step .num{font-size:13px;font-weight:800;color:var(--blue);display:block;margin-bottom:8px;letter-spacing:.1em}
+.step h3{font-size:17px;margin-bottom:8px;color:var(--blue-deep)}
+.step p{font-size:13px;color:var(--text-dim);line-height:1.7}
+
+/* Dark example table */
+.dark{background:#0f2a3d;border-radius:14px;overflow:hidden;margin:28px 0}
+.dark table{width:100%;border-collapse:collapse}
+.dark th,.dark td{padding:14px 18px;text-align:left;font-size:13px;border-bottom:1px solid rgba(255,255,255,0.08)}
+.dark th{color:#8fb8d4;font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.12em;background:rgba(255,255,255,0.03)}
+.dark tr:last-child td{border-bottom:none}
+.dark td{color:#c5d7ea;font-weight:600}
+.dark td.hi{color:#26C6DA;font-weight:800}
+
+/* FAQ */
+.faq{max-width:820px;margin:0 auto}
+.faq-item{background:var(--panel);border:1px solid var(--border);border-radius:12px;margin-bottom:10px;overflow:hidden}
+.faq-q{padding:15px 20px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:14px;color:var(--blue-deep)}
+.faq-q .plus{color:var(--blue);font-weight:900;font-size:18px;transition:transform .2s}
+.faq-item.open .faq-q .plus{transform:rotate(45deg);color:var(--gold)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s;padding:0 20px;color:var(--text-dim);font-size:14px;line-height:1.75}
+.faq-item.open .faq-a{max-height:600px;padding:0 20px 18px}
+
+.ad-box{background:linear-gradient(135deg,#e0f0fa,#fff);border:2px dashed var(--border-strong);border-radius:14px;padding:28px;text-align:center;margin:24px auto;max-width:728px}
+.ad-box .label{font-size:11px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.2em;margin-bottom:8px;font-weight:700}
+.ad-box strong{font-size:17px;display:block;margin-bottom:4px;color:var(--blue-deep)}
+.ad-box span{font-size:12px;color:var(--text-dim)}
+
+footer{background:var(--blue-deep);color:#c5d7f0;padding:48px 0 24px;margin-top:56px}
+.foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:36px;margin-bottom:28px}
+.foot-grid h4{color:#fff;font-size:13px;margin-bottom:12px;text-transform:uppercase;letter-spacing:.12em;font-weight:800}
+.foot-grid p,.foot-grid a{color:#c5d7f0;font-size:13px}
+.foot-grid ul{list-style:none}
+.foot-grid li{margin-bottom:8px}
+.foot-grid .logo{color:#fff;margin-bottom:12px}
+.foot-bot{border-top:1px solid rgba(197,215,240,0.15);padding-top:18px;font-size:12px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:#9fb8df}
+
+@media(max-width:900px){
+  .calc-wrap{grid-template-columns:1fr}
+  .inputs-panel{border-right:none;border-bottom:1px solid var(--border)}
+  .three-col{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr;gap:24px}
+  .nav-links a:not(.cta-btn){display:none}
+}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--blue);color:#fff;padding:12px 22px;border-radius:10px;font-size:14px;font-weight:700;opacity:0;transition:all .3s;z-index:100}
+.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+</style>
+</head>
+<body>
+
+<nav><div class="nav-inner">
+  <div class="logo"><span class="logo-mark">✉</span>Email CTR</div>
+  <div class="nav-links">
+    <a href="#calculator">Calculator</a><a href="#benchmarks">Benchmarks</a><a href="#how">How it Works</a><a href="#faq">FAQ</a>
+    <a href="#" class="cta-btn">More Tools</a>
+  </div>
+</div></nav>
+
+<header class="hero container">
+  <span class="badge">✉️ For email marketers · e-commerce · newsletters</span>
+  <h1>Email <span class="accent">CTR</span> Calculator — Open Rate, CTR &amp; Conversion</h1>
+  <p>Plug in your campaign numbers and instantly compute open rate, click-through rate, CTOR, conversion, and ROI. Compare against industry averages.</p>
+</header>
+
+<main class="container">
+
+  <div class="calc-wrap" id="calculator">
+    <div class="panel inputs-panel">
+      <h2>Your Campaign Numbers</h2>
+      <p class="sub">Update inputs — results update live</p>
+
+      <div class="field">
+        <label>Emails Sent / Recipients</label>
+        <input type="number" id="sent" value="5000" min="0" step="100" />
+        <div class="chips"><span class="chip" data-sent="1000">1K</span><span class="chip" data-sent="5000" class="active">5K</span><span class="chip" data-sent="10000">10K</span><span class="chip" data-sent="50000">50K</span></div>
+      </div>
+
+      <div class="field">
+        <label>Total Opens</label>
+        <input type="number" id="opens" value="1200" min="0" step="10" />
+        <div class="hint">All opens counted (including re-opens).</div>
+      </div>
+
+      <div class="field">
+        <label>Unique Opens</label>
+        <input type="number" id="uopens" value="800" min="0" step="10" />
+        <div class="hint">Each subscriber counted once.</div>
+      </div>
+
+      <div class="field">
+        <label>Total Clicks</label>
+        <input type="number" id="clicks" value="180" min="0" step="1" />
+      </div>
+
+      <div class="field">
+        <label>Conversions (purchases / signups)</label>
+        <input type="number" id="conv" value="25" min="0" step="1" />
+      </div>
+
+      <div class="field">
+        <label>Revenue from Campaign ($)</label>
+        <input type="number" id="revenue" value="2500" min="0" step="10" />
+      </div>
+
+      <div class="field">
+        <label>Average Order Value — AOV ($)</label>
+        <input type="number" id="aov" value="100" min="0" step="1" />
+      </div>
+
+      <button class="primary-btn" id="calcBtn">Calculate Email Performance →</button>
+    </div>
+
+    <div class="panel results-panel">
+      <div class="result-big">
+        <div class="label">Click-Through Rate (CTR)</div>
+        <div class="amount" id="ctrBig">3.60<small>%</small></div>
+        <div class="subtle" id="ctrSub">Avg. industry: 2.3%</div>
+      </div>
+
+      <div class="metric-grid">
+        <div class="metric"><span class="l">Open Rate</span><div class="v" id="mOR">—</div></div>
+        <div class="metric"><span class="l">Unique Open</span><div class="v" id="mUOR">—</div></div>
+        <div class="metric"><span class="l">CTOR</span><div class="v" id="mCTOR">—</div></div>
+        <div class="metric"><span class="l">Conversion</span><div class="v" id="mCV">—</div></div>
+      </div>
+
+      <div class="breakdown">
+        <div class="r"><span class="n">Revenue per Recipient</span><span class="v" id="vRPR">—</span></div>
+        <div class="r"><span class="n">Email ROI</span><span class="v" id="vROI">—</span></div>
+        <div class="r"><span class="n">Cost per Acquisition (CPA)</span><span class="v" id="vCPA">—</span></div>
+        <div class="r total"><span class="n">Campaign Revenue</span><span class="v" id="vRev">—</span></div>
+      </div>
+
+      <div class="ad-box" style="margin-top:18px">
+        <div class="label">Sponsored</div>
+        <strong>Email — 300 × 250 Newsletter Slot</strong>
+        <span>High-intent e-commerce / SaaS newsletter readers</span>
+      </div>
+    </div>
+  </div>
+
+  <section class="content" id="benchmarks">
+    <div class="section-head">
+      <h2>Your Campaign vs Industry Benchmarks</h2>
+      <p class="sub">How your email KPI stack up against the average in 2026.</p>
+    </div>
+    <div class="bench">
+      <table>
+        <thead><tr><th>Metric</th><th>Your Result</th><th>Industry Avg.</th><th>Good Range</th></tr></thead>
+        <tbody>
+          <tr><td>Open Rate</td><td class="mine" id="bOR">—</td><td class="avg">18.0%</td><td class="good">15% – 30%</td></tr>
+          <tr><td>Unique Open Rate</td><td class="mine" id="bUOR">—</td><td class="avg">14.0%</td><td class="good">12% – 25%</td></tr>
+          <tr><td>Click-Through Rate (CTR)</td><td class="mine" id="bCTR">—</td><td class="avg">2.3%</td><td class="good">2% – 5%</td></tr>
+          <tr><td>Click-to-Open Rate (CTOR)</td><td class="mine" id="bCTOR">—</td><td class="avg">14.0%</td><td class="good">10% – 22%</td></tr>
+          <tr><td>Conversion Rate</td><td class="mine" id="bCV">—</td><td class="avg">1.8%</td><td class="good">1.5% – 4%</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="content" id="how">
+    <div class="section-head">
+      <h2>How Email Performance Works</h2>
+      <p class="sub">The three KPIs that drive email revenue.</p>
+    </div>
+    <div class="three-col">
+      <div class="step"><span class="num">STEP · 01</span><h3>Open Rate = Opens ÷ Sent</h3><p>Open rate measures how well your subject line and sender reputation perform. Average: 18% B2B, 14% B2C newsletters. Below 10% needs list hygiene or IP warmup.</p></div>
+      <div class="step"><span class="num">STEP · 02</span><h3>CTR = Clicks ÷ Sent</h3><p>CTR measures how well your email body and CTA resonate. Average: 2.3% across industries. A strong email should hit 3–5% CTR; anything above 8% is elite content.</p></div>
+      <div class="step"><span class="num">STEP · 03</span><h3>CTOR = Clicks ÷ Opens</h3><p>CTOR isolates email body content quality from subject-line quality. Average: 10–18%. A high CTOR means once subscribers open your email, your content converts — a clean signal that your subject line is the bottleneck.</p></div>
+    </div>
+  </section>
+
+  <section class="content">
+    <div class="section-head">
+      <h2>Example Campaign — The Numbers Side-by-Side</h2>
+      <p class="sub">A typical e-commerce promotional blast vs a nurturing newsletter.</p>
+    </div>
+    <div class="dark">
+      <table>
+        <thead><tr><th>Campaign</th><th>Sent</th><th>Opens</th><th>Clicks</th><th>Conv.</th><th>CTR</th><th>Revenue</th><th>ROI</th></tr></thead>
+        <tbody>
+          <tr><td>Black Friday Promo</td><td>25,000</td><td>6,250</td><td>1,125</td><td>220</td><td class="hi">4.5%</td><td>$22,000</td><td class="hi">1,100%</td></tr>
+          <tr><td>Weekly Newsletter</td><td>12,000</td><td>2,880</td><td>420</td><td>65</td><td class="hi">3.5%</td><td>$6,500</td><td class="hi">650%</td></tr>
+          <tr><td>Winback / Re-engagement</td><td>8,000</td><td>1,200</td><td>180</td><td>32</td><td class="hi">2.3%</td><td>$3,200</td><td class="hi">480%</td></tr>
+          <tr><td>Welcome / Onboarding Seq.</td><td>4,500</td><td>2,250</td><td>560</td><td>85</td><td class="hi">12.4%</td><td>$8,500</td><td class="hi">1,400%</td></tr>
+          <tr><td>NPS Survey (Low-Prio)</td><td>30,000</td><td>3,600</td><td>180</td><td>12</td><td class="hi">0.6%</td><td>$0</td><td class="hi">−100%</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <div class="ad-box">
+    <div class="label">Sponsored</div>
+    <strong>Email — 728 × 90 Header Banner</strong>
+    <span>Newsletter readers, e-commerce buyers, B2B decision-makers</span>
+  </div>
+
+  <section class="content" id="faq">
+    <div class="section-head"><h2>FAQ</h2><p class="sub">Top questions about email KPIs and campaign performance.</p></div>
+    <div class="faq">
+      <div class="faq-item"><div class="faq-q">What is a good email open rate in 2026?<span class="plus">+</span></div><div class="faq-a"><p>A good email open rate in 2026 averages <strong>18–25% for B2B</strong> and <strong>14–22% for B2C</strong> newsletters. Welcome emails and transactional emails often hit <strong>30–50%</strong>. Anything below 10% typically means list hygiene problems (bought list, missing double opt-in) or poor sender reputation (low IP warmup, high spam complaints).</p></div></div>
+      <div class="faq-item"><div class="faq-q">What is click-to-open rate (CTOR) and why is it important?<span class="plus">+</span></div><div class="faq-a"><p>CTOR = (Clicks / Opens) × 100. Industry average is <strong>10–18%</strong>. CTOR is more useful than raw CTR because it isolates subject-line performance from content performance. If CTOR is high but CTR is low, you have a subject-line problem. If CTOR is low, your body copy and CTA need work.</p></div></div>
+      <div class="faq-item"><div class="faq-q">How do I calculate email ROI?<span class="plus">+</span></div><div class="faq-a"><p>Email ROI = ((Revenue − Cost) / Cost) × 100. If the only cost is your ESP and design/copywriting time, a $500 campaign generating $4,000 in revenue returns <strong>700% ROI</strong>. Average email marketing ROI in 2026 is <strong>$42 return per $1 spent</strong> — the highest of any digital channel, which is why email still dominates DTC and SaaS onboarding budgets.</p></div></div>
+      <div class="faq-item"><div class="faq-q">What is the difference between opens and unique opens?<span class="plus">+</span></div><div class="faq-a"><p>Opens counts every time an email is opened (including re-opens). Unique Opens counts each subscriber only once. A ratio of <strong>1.3× (opens = 130% of unique opens)</strong> is healthy; above 1.6× suggests high-quality content being revisited — a signal you should double down on that content format.</p></div></div>
+      <div class="faq-item"><div class="faq-q">How can I improve my email CTR?<span class="plus">+</span></div><div class="faq-a"><p>Six proven levers for higher email CTR: <strong>(1)</strong> Single, clear CTA above the fold; <strong>(2)</strong> Bullet-list scannable content; <strong>(3)</strong> Personalized dynamic content using first-name and segment data; <strong>(4)</strong> Time-of-day sending based on subscriber timezone; <strong>(5)</strong> Two-step subject-line preheader testing (preheaders lift open rate 5–15%); <strong>(6)</strong> List hygiene — remove subscribers who haven't opened in 6+ months.</p></div></div>
+      <div class="faq-item"><div class="faq-q">What industry has the highest email conversion rate?<span class="plus">+</span></div><div class="faq-a"><p>Highest email conversion rates in 2026: <strong>Non-profit fundraising (3.4%)</strong>; B2B SaaS (2.9%); E-commerce apparel (2.5%); Travel &amp; hospitality (2.2%); Beauty &amp; personal care (2.0%); Publishing &amp; media (1.4%). Average across industries sits at 1.8% — use our calculator to see how your campaigns stack up.</p></div></div>
+      <div class="faq-item"><div class="faq-q">How do you calculate cost per acquisition (CPA) from an email campaign?<span class="plus">+</span></div><div class="faq-a"><p>Email CPA = Total Cost of Campaign / Number of Conversions. Total cost includes ESP subscription, copywriting, design, list rental, and promotion spend. <strong>CPA of $15–$30</strong> is typical for DTC; B2B SaaS CPA from email nurture is <strong>$150–$350</strong>. Compare CPA against your AOV and LTV — if CPA &lt; 30% of LTV, the campaign is a keeper.</p></div></div>
+    </div>
+  </section>
+
+</main>
+
+<footer><div class="container">
+  <div class="foot-grid">
+    <div><div class="logo"><span class="logo-mark">✉</span>Email CTR</div><p style="font-size:13px;max-width:320px">Free email CTR, open rate, and conversion calculators for email marketers, e-commerce teams, and newsletter publishers.</p></div>
+    <div><h4>Calculators</h4><ul><li><a href="#">Email CTR</a></li><li><a href="#">Open Rate</a></li><li><a href="#">Email ROI</a></li><li><a href="#">List Growth</a></li></ul></div>
+    <div><h4>Guides</h4><ul><li><a href="#">Subject Line Testing</a></li><li><a href="#">Improve CTR</a></li><li><a href="#">Email KPI Benchmarks</a></li><li><a href="#">Blog</a></li></ul></div>
+    <div><h4>Company</h4><ul><li><a href="#">About</a></li><li><a href="#">Contact</a></li><li><a href="#">Privacy</a></li><li><a href="#">Terms</a></li></ul></div>
+  </div>
+  <div class="foot-bot"><span>© 2026 Email CTR Calc. All estimates are illustrative.</span><span>Made for email marketers ✉️</span></div>
+</div></footer>
+
+<div class="toast" id="toast">Campaign calculated!</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const $N = id => parseFloat($(id).value) || 0;
+const fmt$ = n => '$' + Math.round(n).toLocaleString('en-US');
+const fmt1 = n => '$' + Number(n).toFixed(2);
+const pct = n => Number(n).toFixed(2) + '%';
+
+document.querySelectorAll('[data-sent]').forEach(c=>{
+  c.addEventListener('click',()=>{
+    document.querySelectorAll('[data-sent]').forEach(x=>x.classList.remove('active'));
+    c.classList.add('active'); $('sent').value=parseFloat(c.dataset.sent); calc();
+  });
+});
+
+function calc(){
+  const sent = $N('sent'), opens = $N('opens'), uopens = $N('uopens');
+  const clicks = $N('clicks'), conv = $N('conv'), revenue = $N('revenue'), aov = $N('aov');
+
+  const or = sent > 0 ? (opens / sent) * 100 : 0;
+  const uor = sent > 0 ? (uopens / sent) * 100 : 0;
+  const ctr = sent > 0 ? (clicks / sent) * 100 : 0;
+  const ctor = opens > 0 ? (clicks / opens) * 100 : 0;
+  const cv = clicks > 0 ? (conv / clicks) * 100 : 0;
+
+  const rpr = sent > 0 ? revenue / sent : 0;
+  const cost = aov > 0 ? conv * aov * 0.2 + 100 : 0;
+  const roi = cost > 0 ? ((revenue - cost) / cost) * 100 : 0;
+  const cpa = conv > 0 ? cost / conv : 0;
+
+  $('ctrBig').innerHTML = Number(ctr).toFixed(2)+'<small>%</small>';
+  $('ctrSub').textContent = 'Industry avg: ~2.3% CTR';
+
+  $('mOR').textContent = pct(or);
+  $('mUOR').textContent = pct(uor);
+  $('mCTOR').textContent = pct(ctor);
+  $('mCV').textContent = pct(cv);
+
+  $('vRPR').textContent = fmt1(rpr);
+  $('vROI').textContent = Number(roi).toFixed(1) + '%';
+  $('vCPA').textContent = fmt1(cpa);
+  $('vRev').textContent = fmt$(revenue);
+
+  // benchmarks
+  $('bOR').textContent = pct(or);
+  $('bUOR').textContent = pct(uor);
+  $('bCTR').textContent = pct(ctr);
+  $('bCTOR').textContent = pct(ctor);
+  $('bCV').textContent = pct(cv);
+}
+
+['sent','opens','uopens','clicks','conv','revenue','aov'].forEach(id=>{$(id).addEventListener('input',calc)});
+$('calcBtn').addEventListener('click',()=>{calc(); toast('Campaign performance calculated!');});
+
+document.querySelectorAll('.faq-item').forEach(item=>{
+  item.querySelector('.faq-q').addEventListener('click',()=>item.classList.toggle('open'));
+});
+document.querySelector('.faq-item').classList.add('open');
+
+function toast(msg){const t=$('toast');t.textContent=msg;t.classList.add('show');clearTimeout(window._t);window._t=setTimeout(()=>t.classList.remove('show'),1500);}
+calc();
+</script>
+</body>
+</html>

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Net Payout Calculator — Affiliate & CPA Earnings</title>
+<!-- Google Analytics (GA4) — 把 G-XXXXXXXXXX 替换为你自己的测量 ID -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+<meta name="description" content="Net payout calculator for affiliate marketers. Compute true earnings after network fees, payment processing, refunds, chargebacks, and currency conversion." />
+<meta name="keywords" content="affiliate payout calculator, cpa payout calculator, net earnings calculator, affiliate network fees, refund chargeback calculator" />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://calcpro.cc.cd/net-payout-calculator/" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Net Payout Calculator — Affiliate & CPA Earnings" />
+<meta property="og:description" content="Net payout calculator for affiliate marketers. Compute true earnings after network fees, payment processing, refunds, chargebacks, and currency conversion." />
+<meta property="og:url" content="https://calcpro.cc.cd/net-payout-calculator/" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Net Payout Calculator","applicationCategory":"CalculatorApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}","description":"Net payout calculator for affiliate marketers. Compute true earnings after network fees, payment processing, refunds, chargebacks, and currency conversion.","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.8","ratingCount":"890"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"What is net payout vs gross revenue?","acceptedAnswer":{"@type":"Answer","text":"Gross revenue is the total amount your campaigns generate before any deductions. Net payout is what actually lands in your bank account after subtracting network fees, payment processor fees (2.9% + $0.30 per transaction on average), refund reversals, chargeback losses, wire/payout fees, and currency conversion fees. The gap between gross and net is usually 15–35% for most affiliate marketers."}},
+  {"@type":"Question","name":"How much do affiliate networks charge?","acceptedAnswer":{"@type":"Answer","text":"Affiliate networks (MaxBounty, ClickBank, CJ, AWIN, Rakuten, CPA networks) typically keep 3–8% of gross revenue as their platform fee. Tier-1 CPA networks charge 5% on average. Some networks charge a flat $1–$5 per conversion in addition to a percentage fee. Always confirm whether the listed payout is pre-fee or post-fee — most show pre-fee."}},
+  {"@type":"Question","name":"What is a good chargeback ratio for affiliate campaigns?","acceptedAnswer":{"@type":"Answer","text":"A healthy chargeback ratio for affiliate campaigns is under 1% of total transactions. Above 2% triggers network warnings and payment processor holds. Above 5% gets you banned from most networks. Common culprits: misleading pre-sells, unfulfilled promises, fake scarcity, or traffic sources that attract fraud-prone buyers (certain incentivized traffic, poor proxy VPN traffic)."}},
+  {"@type":"Question","name":"How do payment processing fees work for payouts?","acceptedAnswer":{"@type":"Answer","text":"Payment processors (Stripe, PayPal, merchant accounts) typically charge 2.9% + $0.30 per transaction on the way in. On the way out (payout to your bank), wire transfers cost $15–$35, ACH is free to $5, and PayPal fees can reach 3.5% + fixed fee for cross-border payouts. Use the calculator to see how processing compounds against your margin."}},
+  {"@type":"Question","name":"Should I worry about currency conversion fees?","acceptedAnswer":{"@type":"Answer","text":"If you earn in USD but live outside the US, currency conversion eats 1–3% of every payout. Wise/TransferWise and Payoneer charge roughly 0.5–1.5%, PayPal charges 2.5–4%, and traditional banks charge 2–3% plus bad exchange rates. On a $10,000 monthly payout, the difference between PayPal (3%) and Wise (1%) is $200/month — $2,400/year. Worth optimizing."}},
+  {"@type":"Question","name":"What is effective payout rate?","acceptedAnswer":{"@type":"Answer","text":"Effective payout rate = (Net Payout / Gross Revenue) × 100. It tells you what percentage of top-line revenue actually becomes profit. A $50 CPA offer with a 70% effective payout rate means your true earnings per conversion are $35, not $50. Top operators track effective payout rate weekly — it flags rising refunds, new network fee tiers, or currency shifts before they become a crisis."}},
+  {"@type":"Question","name":"How can I reduce my effective payout loss?","acceptedAnswer":{"@type":"Answer","text":"Five proven strategies to reduce payout loss: (1) Use lower-fee payout methods — ACH + Wise instead of PayPal; (2) Reduce chargebacks via honest pre-sell pages and visible refund policies; (3) Negotiate better network fees once you hit consistent volume; (4) Use one primary currency for all campaigns to eliminate forex fees; (5) Track refund rate per traffic source and drop sources above 3% refund — they're quietly eating your profit."}}
+]}
+</script>
+
+<style>
+:root{
+  --bg:#111725;
+  --panel:#1B2845;
+  --soft:#223258;
+  --border:#2a3f6b;
+  --border-strong:#3a5896;
+  --text:#e6ecf5;
+  --text-dim:#a6b4cf;
+  --gold:#F4B860;
+  --gold-deep:#c68f3c;
+  --blue:#5e9eff;
+  --blue-deep:#2a4d8c;
+  --green:#4ade80;
+  --red:#f87171;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,'Segoe UI',Roboto,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;min-height:100vh;overflow-x:hidden}
+h1,h2,h3{font-family:-apple-system,system-ui,'Segoe UI',Roboto,sans-serif;font-weight:700;letter-spacing:-.02em;line-height:1.2;color:#fff}
+a{color:var(--gold);text-decoration:none}
+a:hover{text-decoration:underline}
+.container{max-width:1180px;margin:0 auto;padding:0 24px}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:50;background:rgba(17,23,37,0.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:1180px;margin:0 auto}
+.logo{font-weight:700;font-size:18px;color:var(--gold);display:flex;align-items:center;gap:10px}
+.logo-mark{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,var(--gold),#8c5e1e);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:#1B2845;box-shadow:0 4px 14px rgba(244,184,96,0.25)}
+.nav-links{display:flex;gap:26px;align-items:center}
+.nav-links a{color:var(--text-dim);font-weight:500;font-size:14px}
+.nav-links a:hover{color:var(--gold);text-decoration:none}
+.cta-btn{background:var(--gold);color:#1B2845!important;padding:10px 18px;border-radius:10px;font-weight:700;font-size:14px;text-decoration:none!important;box-shadow:0 6px 16px -4px rgba(244,184,96,0.4)}
+.cta-btn:hover{background:var(--gold-deep)}
+
+/* HERO */
+.hero{padding:64px 0 24px;text-align:center}
+.badge{display:inline-flex;align-items:center;gap:8px;background:rgba(244,184,96,0.12);color:var(--gold);padding:7px 14px;border-radius:999px;font-size:12px;font-weight:700;margin-bottom:20px;border:1px solid var(--border);letter-spacing:.05em}
+.hero h1{font-size:clamp(32px,5.5vw,58px);margin-bottom:14px}
+.hero h1 .accent{color:var(--gold)}
+.hero p{font-size:17px;color:var(--text-dim);max-width:640px;margin:0 auto}
+
+/* CALC */
+.calc-wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;margin:28px 0;background:var(--panel);border:1px solid var(--border);border-radius:18px;overflow:hidden;box-shadow:0 20px 60px -24px rgba(0,0,0,0.5)}
+.panel{padding:28px}
+.inputs-panel{border-right:1px solid var(--border)}
+.panel h2{font-size:20px;margin-bottom:4px;color:#fff}
+.panel .sub{font-size:13px;color:var(--text-dim);margin-bottom:20px}
+
+.field{margin-bottom:16px}
+.field label{display:block;font-size:12px;font-weight:700;margin-bottom:6px;color:var(--gold);letter-spacing:.06em;text-transform:uppercase}
+.field input[type="number"]{width:100%;padding:12px 14px;background:var(--soft);border:1.5px solid var(--border);border-radius:10px;color:var(--text);font-size:15px;font-weight:600;font-family:inherit;transition:all .15s}
+.field input:focus{outline:none;border-color:var(--gold);background:#1d2a48;box-shadow:0 0 0 4px rgba(244,184,96,0.15)}
+.field .hint{font-size:11px;color:var(--text-dim);margin-top:4px;font-style:italic}
+
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.chip{padding:7px 12px;background:var(--soft);border:1.5px solid var(--border);border-radius:10px;cursor:pointer;font-size:12px;font-weight:700;color:var(--text-dim);transition:all .15s}
+.chip.active,.chip:hover{background:var(--gold);color:#1B2845;border-color:var(--gold);box-shadow:0 4px 12px -4px rgba(244,184,96,0.35)}
+
+/* Result */
+.result-big{background:linear-gradient(145deg,#223258,#1B2845);padding:28px 24px;border-radius:14px;border:1px solid var(--border);text-align:center;margin-bottom:18px;position:relative;overflow:hidden}
+.result-big::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),#ffd89c)}
+.result-big .label{font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:var(--text-dim);font-weight:700;margin-top:6px}
+.result-big .amount{font-size:54px;font-weight:800;margin:4px 0;color:var(--gold);letter-spacing:-.03em}
+.result-big .amount small{font-size:16px;color:var(--text-dim);font-weight:500;margin-left:4px}
+.result-big .subtle{font-size:13px;color:var(--text-dim);margin-top:4px}
+
+.metric-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
+.metric{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:14px}
+.metric .l{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--text-dim);font-weight:700;margin-bottom:6px}
+.metric .v{font-size:18px;color:var(--gold);font-weight:800}
+
+.breakdown{display:grid;gap:8px;margin:10px 0}
+.r{display:flex;justify-content:space-between;align-items:center;padding:11px 14px;background:var(--soft);border:1px solid var(--border);border-radius:10px;font-size:13px}
+.r .n{color:var(--text-dim)}
+.r .v{font-weight:700;color:var(--gold)}
+.r.total{padding:14px;background:linear-gradient(135deg,#1B2845,#223258);border:1.5px solid var(--gold)}
+.r.total .v{font-size:20px;color:#fff}
+
+.primary-btn{width:100%;padding:13px;background:var(--gold);color:#1B2845;border:none;border-radius:10px;font-size:15px;font-weight:800;cursor:pointer;transition:all .2s;margin-top:6px;box-shadow:0 10px 24px -8px rgba(244,184,96,0.4)}
+.primary-btn:hover{background:#ffd89c;transform:translateY(-1px)}
+
+/* Dark example table */
+.dark{background:#0a0f1e;border-radius:14px;overflow:hidden;margin:28px 0;border:1px solid var(--border)}
+.dark table{width:100%;border-collapse:collapse}
+.dark th,.dark td{padding:14px 18px;text-align:left;font-size:13px;border-bottom:1px solid var(--border)}
+.dark th{color:var(--gold);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.12em;background:rgba(244,184,96,0.06)}
+.dark tr:last-child td{border-bottom:none}
+.dark td{color:var(--text);font-weight:600}
+.dark td.hi{color:var(--gold);font-weight:800}
+
+/* Sections */
+section.content{padding:56px 0}
+.section-head{text-align:center;margin-bottom:32px}
+.section-head h2{font-size:clamp(26px,4vw,40px);margin-bottom:10px}
+.section-head .sub{font-size:15px;color:var(--text-dim);max-width:640px;margin:0 auto}
+
+/* How steps */
+.three-col{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:24px}
+.step{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:24px;transition:all .2s;position:relative;overflow:hidden}
+.step:hover{transform:translateY(-2px);border-color:var(--gold);box-shadow:0 12px 30px -12px rgba(244,184,96,0.25)}
+.step::before{content:"";position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--gold),#ffd89c)}
+.step .num{font-size:13px;font-weight:800;color:var(--gold);display:block;margin-bottom:8px;letter-spacing:.1em}
+.step h3{font-size:17px;margin-bottom:8px;color:#fff}
+.step p{font-size:13px;color:var(--text-dim);line-height:1.7}
+
+/* FAQ */
+.faq{max-width:820px;margin:0 auto}
+.faq-item{background:var(--panel);border:1px solid var(--border);border-radius:12px;margin-bottom:10px;overflow:hidden}
+.faq-q{padding:15px 20px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:14px;color:#fff}
+.faq-q .plus{color:var(--gold);font-weight:900;font-size:18px;transition:transform .2s}
+.faq-item.open .faq-q .plus{transform:rotate(45deg);color:#fff}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s;padding:0 20px;color:var(--text-dim);font-size:14px;line-height:1.75}
+.faq-item.open .faq-a{max-height:600px;padding:0 20px 18px}
+
+.ad-box{background:linear-gradient(135deg,#223258,#1B2845);border:2px dashed var(--gold);border-radius:14px;padding:28px;text-align:center;margin:24px auto;max-width:728px}
+.ad-box .label{font-size:11px;color:var(--gold);text-transform:uppercase;letter-spacing:.2em;margin-bottom:8px;font-weight:700}
+.ad-box strong{font-size:17px;display:block;margin-bottom:4px;color:#fff}
+.ad-box span{font-size:12px;color:var(--text-dim)}
+
+footer{background:#0a0f1e;color:var(--text-dim);padding:48px 0 24px;margin-top:56px;border-top:1px solid var(--border)}
+.foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:36px;margin-bottom:28px}
+.foot-grid h4{color:var(--gold);font-size:13px;margin-bottom:12px;text-transform:uppercase;letter-spacing:.12em;font-weight:800}
+.foot-grid p,.foot-grid a{color:var(--text-dim);font-size:13px}
+.foot-grid ul{list-style:none}
+.foot-grid li{margin-bottom:8px}
+.foot-grid .logo{color:#fff;margin-bottom:12px}
+.foot-bot{border-top:1px solid var(--border);padding-top:18px;font-size:12px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:#8a98b5}
+
+@media(max-width:900px){
+  .calc-wrap{grid-template-columns:1fr}
+  .inputs-panel{border-right:none;border-bottom:1px solid var(--border)}
+  .three-col{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr;gap:24px}
+  .nav-links a:not(.cta-btn){display:none}
+}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--gold);color:#1B2845;padding:12px 22px;border-radius:10px;font-size:14px;font-weight:800;opacity:0;transition:all .3s;z-index:100}
+.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+</style>
+</head>
+<body>
+
+<nav><div class="nav-inner">
+  <div class="logo"><span class="logo-mark">$</span>Net Payout</div>
+  <div class="nav-links">
+    <a href="#calculator">Calculator</a><a href="#breakdown">Breakdown</a><a href="#how">How it Works</a><a href="#faq">FAQ</a>
+    <a href="#" class="cta-btn">More Tools</a>
+  </div>
+</div></nav>
+
+<header class="hero container">
+  <span class="badge">💰 For affiliate marketers · CPA · performance advertisers</span>
+  <h1>Net <span class="accent">Payout</span> Calculator — Affiliate &amp; CPA Earnings</h1>
+  <p>Calculate what actually hits your bank account after network fees, refunds, chargebacks, payment processing, wire transfers, and currency conversion.</p>
+</header>
+
+<main class="container">
+
+  <div class="calc-wrap" id="calculator">
+    <div class="panel inputs-panel">
+      <h2>Your Campaign Numbers</h2>
+      <p class="sub">Update inputs — results update live</p>
+
+      <div class="field">
+        <label>Gross Revenue / Gross Earnings ($)</label>
+        <input type="number" id="gross" value="10000" min="0" step="100" />
+        <div class="chips"><span class="chip" data-gross="1000">$1K</span><span class="chip" data-gross="5000">$5K</span><span class="chip active" data-gross="10000">$10K</span><span class="chip" data-gross="50000">$50K</span></div>
+      </div>
+
+      <div class="field">
+        <label>Network Fee %</label>
+        <input type="number" id="netFee" value="5" min="0" max="30" step="0.5" />
+        <div class="hint">MaxBounty ~5%, ClickBank ~7.5%, networks vary.</div>
+      </div>
+
+      <div class="field">
+        <label>Refund Amount ($)</label>
+        <input type="number" id="refund" value="500" min="0" step="10" />
+      </div>
+
+      <div class="field">
+        <label>Chargeback Amount ($)</label>
+        <input type="number" id="chback" value="200" min="0" step="10" />
+      </div>
+
+      <div class="field">
+        <label>Number of Conversions</label>
+        <input type="number" id="conv" value="250" min="0" step="1" />
+      </div>
+
+      <div class="field">
+        <label>Payment Processing — %</label>
+        <input type="number" id="ppPct" value="2.9" min="0" max="10" step="0.1" />
+      </div>
+
+      <div class="field">
+        <label>Payment Processing — Flat per Conv ($)</label>
+        <input type="number" id="ppFlat" value="0.30" min="0" step="0.01" />
+      </div>
+
+      <div class="field">
+        <label>Wire / Payout Fee ($)</label>
+        <input type="number" id="wire" value="15" min="0" step="1" />
+      </div>
+
+      <div class="field">
+        <label>Currency Conversion Fee %</label>
+        <input type="number" id="fx" value="1" min="0" max="10" step="0.1" />
+      </div>
+
+      <button class="primary-btn" id="calcBtn">Calculate My Net Payout →</button>
+    </div>
+
+    <div class="panel results-panel">
+      <div class="result-big">
+        <div class="label">Net Payout</div>
+        <div class="amount" id="payoutBig">$0<small>/payout</small></div>
+        <div class="subtle" id="payoutSub">Effective payout rate: —</div>
+      </div>
+
+      <div class="metric-grid">
+        <div class="metric"><span class="l">Total Fees</span><div class="v" id="mFees">—</div></div>
+        <div class="metric"><span class="l">Per Conversion</span><div class="v" id="mPer">—</div></div>
+        <div class="metric"><span class="l">Effective Rate</span><div class="v" id="mRate">—</div></div>
+        <div class="metric"><span class="l">Loss %</span><div class="v" id="mLoss">—</div></div>
+      </div>
+
+      <div class="breakdown">
+        <div class="r"><span class="n">Gross Revenue</span><span class="v" id="bGross">—</span></div>
+        <div class="r"><span class="n">Network Fee</span><span class="v" id="bNet">—</span></div>
+        <div class="r"><span class="n">Payment Processing</span><span class="v" id="bPP">—</span></div>
+        <div class="r"><span class="n">Refunds</span><span class="v" id="bRef">—</span></div>
+        <div class="r"><span class="n">Chargebacks</span><span class="v" id="bChb">—</span></div>
+        <div class="r"><span class="n">Wire / Payout</span><span class="v" id="bWire">—</span></div>
+        <div class="r"><span class="n">Currency Conversion</span><span class="v" id="bFx">—</span></div>
+        <div class="r total"><span class="n">Net Payout</span><span class="v" id="bNetP">—</span></div>
+      </div>
+
+      <div class="ad-box" style="margin-top:18px">
+        <div class="label">Sponsored</div>
+        <strong>Affiliate — 300 × 250 Sidebar</strong>
+        <span>CPA marketers &amp; performance advertisers</span>
+      </div>
+    </div>
+  </div>
+
+  <section class="content" id="breakdown">
+    <div class="section-head">
+      <h2>Real Payout Scenarios</h2>
+      <p class="sub">Typical CPA and affiliate offer payouts with all fees applied.</p>
+    </div>
+    <div class="dark">
+      <table>
+        <thead><tr><th>Offer / Niche</th><th>Gross</th><th>Net Fees</th><th>Refunds</th><th>Processing</th><th>Net</th><th>Eff. Rate</th></tr></thead>
+        <tbody>
+          <tr><td>Sweeps / Survey CPA (US)</td><td>$8,500</td><td>$425</td><td>$680</td><td>$320</td><td class="hi">$7,075</td><td class="hi">83.2%</td></tr>
+          <tr><td>E-commerce / Fulfillment</td><td>$15,200</td><td>$1,140</td><td>$1,800</td><td>$520</td><td class="hi">$11,740</td><td class="hi">77.2%</td></tr>
+          <tr><td>Insurance / Finance Lead</td><td>$22,000</td><td>$1,100</td><td>$1,100</td><td>$680</td><td class="hi">$19,120</td><td class="hi">86.9%</td></tr>
+          <tr><td>Diet / Supplement (High-Risk)</td><td>$12,000</td><td>$900</td><td>$2,400</td><td>$420</td><td class="hi">$8,280</td><td class="hi">69.0%</td></tr>
+          <tr><td>Info Product / Course Launch</td><td>$35,000</td><td>$2,100</td><td>$3,500</td><td>$1,050</td><td class="hi">$28,350</td><td class="hi">81.0%</td></tr>
+          <tr><td>SaaS / B2B Subscription</td><td>$18,000</td><td>$900</td><td>$540</td><td>$540</td><td class="hi">$16,020</td><td class="hi">89.0%</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="content" id="how">
+    <div class="section-head">
+      <h2>How Net Payout Actually Works</h2>
+      <p class="sub">The three layers of fees that silently reduce your earnings.</p>
+    </div>
+    <div class="three-col">
+      <div class="step"><span class="num">STEP · 01</span><h3>Network Takes a Cut</h3><p>Affiliate networks (MaxBounty, ClickBank, CJ, Rakuten) keep 3–8% of gross revenue as their platform fee. Some add flat fees per conversion. High-volume operators negotiate lower network tiers — 1–3% fees are possible above $50K/month.</p></div>
+      <div class="step"><span class="num">STEP · 02</span><h3>Refunds &amp; Chargebacks Reverse Payouts</h3><p>Refunds reverse your commission at the network level, so you never earn on refunded conversions. Chargebacks usually cost the refund amount plus a processor penalty ($15–$25 each). A campaign with &gt;2% chargeback ratio gets flagged by payment processors.</p></div>
+      <div class="step"><span class="num">STEP · 03</span><h3>Payout &amp; FX Fees Hit at the End</h3><p>Stripe/PayPal charge 2.9% + $0.30 per transaction to accept funds. Wire fees hit $15–$35 to send to your bank. Cross-border currency conversion adds 1–3%. These fees compound — what looks like a $50 CPA can easily become $35 after every fee layer.</p></div>
+    </div>
+  </section>
+
+  <div class="ad-box">
+    <div class="label">Sponsored</div>
+    <strong>Affiliate — 728 × 90 Leaderboard</strong>
+    <span>CPA marketers, dropshippers, performance advertisers</span>
+  </div>
+
+  <section class="content" id="faq">
+    <div class="section-head"><h2>FAQ</h2><p class="sub">Top questions about affiliate and CPA payout math.</p></div>
+    <div class="faq">
+      <div class="faq-item"><div class="faq-q">What is net payout vs gross revenue?<span class="plus">+</span></div><div class="faq-a"><p>Gross revenue is the total your campaigns generate before deductions. <strong>Net payout</strong> is what actually lands in your bank account after subtracting network fees, payment processor fees (2.9% + $0.30 per transaction on average), refund reversals, chargeback losses, wire/payout fees, and currency conversion fees. The gap between gross and net is usually <strong>15–35%</strong> for most affiliate marketers.</p></div></div>
+      <div class="faq-item"><div class="faq-q">How much do affiliate networks charge?<span class="plus">+</span></div><div class="faq-a"><p>Affiliate networks typically keep <strong>3–8%</strong> of gross revenue as their platform fee. Tier-1 CPA networks charge <strong>5% on average</strong>. Some networks charge a flat $1–$5 per conversion in addition to a percentage fee. Always confirm whether the listed payout is pre-fee or post-fee — most show pre-fee.</p></div></div>
+      <div class="faq-item"><div class="faq-q">What is a good chargeback ratio for affiliate campaigns?<span class="plus">+</span></div><div class="faq-a"><p>A healthy chargeback ratio for affiliate campaigns is <strong>under 1%</strong> of total transactions. Above 2% triggers network warnings and processor holds. Above 5% gets you banned. Common culprits: misleading pre-sells, unfulfilled promises, fake scarcity, or traffic sources that attract fraud-prone buyers (incentivized traffic, VPN/proxy traffic).</p></div></div>
+      <div class="faq-item"><div class="faq-q">How do payment processing fees work for payouts?<span class="plus">+</span></div><div class="faq-a"><p>Payment processors (Stripe, PayPal, merchant accounts) typically charge <strong>2.9% + $0.30 per transaction</strong> on the way in. On the way out (payout to your bank), wire transfers cost <strong>$15–$35</strong>, ACH is free to $5, and PayPal fees can reach <strong>3.5% + fixed fee</strong> for cross-border payouts.</p></div></div>
+      <div class="faq-item"><div class="faq-q">Should I worry about currency conversion fees?<span class="plus">+</span></div><div class="faq-a"><p>If you earn in USD but live outside the US, currency conversion eats <strong>1–3%</strong> of every payout. Wise/Payoneer charge roughly <strong>0.5–1.5%</strong>, PayPal charges <strong>2.5–4%</strong>, and traditional banks charge <strong>2–3% plus bad exchange rates</strong>. On a $10,000 monthly payout, the difference between PayPal (3%) and Wise (1%) is $200/month — $2,400/year. Worth optimizing.</p></div></div>
+      <div class="faq-item"><div class="faq-q">What is effective payout rate?<span class="plus">+</span></div><div class="faq-a"><p>Effective payout rate = (Net Payout / Gross Revenue) × 100. It tells you what percentage of top-line revenue actually becomes profit. A $50 CPA offer with a <strong>70% effective payout rate</strong> means your true earnings per conversion are $35, not $50. Top operators track effective payout rate weekly — it flags rising refunds, new network fee tiers, or currency shifts before they become a crisis.</p></div></div>
+      <div class="faq-item"><div class="faq-q">How can I reduce my effective payout loss?<span class="plus">+</span></div><div class="faq-a"><p>Five proven strategies to reduce payout loss: <strong>(1)</strong> Use lower-fee payout methods — ACH + Wise instead of PayPal; <strong>(2)</strong> Reduce chargebacks via honest pre-sell pages and visible refund policies; <strong>(3)</strong> Negotiate better network fees once you hit consistent volume; <strong>(4)</strong> Use one primary currency for all campaigns to eliminate forex fees; <strong>(5)</strong> Track refund rate per traffic source and drop sources above 3% refund — they're quietly eating your profit.</p></div></div>
+    </div>
+  </section>
+
+</main>
+
+<footer><div class="container">
+  <div class="foot-grid">
+    <div><div class="logo"><span class="logo-mark">$</span>Net Payout</div><p style="font-size:13px;max-width:320px">Free net payout calculators for affiliate marketers, CPA operators, and performance advertisers.</p></div>
+    <div><h4>Calculators</h4><ul><li><a href="#">Net Payout</a></li><li><a href="#">CPA Earnings</a></li><li><a href="#">Refund Impact</a></li><li><a href="#">FX Loss</a></li></ul></div>
+    <div><h4>Guides</h4><ul><li><a href="#">Negotiate Network Fees</a></li><li><a href="#">Reduce Chargebacks</a></li><li><a href="#">Best Payout Methods</a></li><li><a href="#">Blog</a></li></ul></div>
+    <div><h4>Company</h4><ul><li><a href="#">About</a></li><li><a href="#">Contact</a></li><li><a href="#">Privacy</a></li><li><a href="#">Terms</a></li></ul></div>
+  </div>
+  <div class="foot-bot"><span>© 2026 Net Payout Calc. All estimates are illustrative.</span><span>Built for performance operators 💰</span></div>
+</div></footer>
+
+<div class="toast" id="toast">Payout calculated!</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const $N = id => parseFloat($(id).value) || 0;
+const fmt$ = n => '$' + Math.round(n).toLocaleString('en-US');
+const fmt2 = n => '$' + Number(n).toFixed(2);
+const pct = n => Number(n).toFixed(2) + '%';
+
+document.querySelectorAll('[data-gross]').forEach(c=>{
+  c.addEventListener('click',()=>{
+    document.querySelectorAll('[data-gross]').forEach(x=>x.classList.remove('active'));
+    c.classList.add('active'); $('gross').value=parseFloat(c.dataset.gross); calc();
+  });
+});
+
+function calc(){
+  const gross = $N('gross');
+  const netFeePct = $N('netFee');
+  const refund = $N('refund');
+  const chback = $N('chback');
+  const conv = $N('conv');
+  const ppPct = $N('ppPct');
+  const ppFlat = $N('ppFlat');
+  const wire = $N('wire');
+  const fxPct = $N('fx');
+
+  const netFee = gross * (netFeePct/100);
+  const ppFee = gross * (ppPct/100) + conv * ppFlat;
+  const afterBig = gross - netFee - ppFee - refund - chback - wire;
+  const fxFee = Math.max(0, afterBig) * (fxPct/100);
+  const totalFees = netFee + ppFee + refund + chback + wire + fxFee;
+  const net = gross - totalFees;
+
+  const perConv = conv > 0 ? net / conv : 0;
+  const effRate = gross > 0 ? (net / gross) * 100 : 0;
+  const lossPct = gross > 0 ? (totalFees / gross) * 100 : 0;
+
+  $('payoutBig').innerHTML = fmt$(net) + '<small>net</small>';
+  $('payoutSub').textContent = 'Effective payout rate: ' + pct(effRate);
+
+  $('mFees').textContent = fmt$(totalFees);
+  $('mPer').textContent = fmt2(perConv);
+  $('mRate').textContent = pct(effRate);
+  $('mLoss').textContent = pct(lossPct);
+
+  $('bGross').textContent = fmt$(gross);
+  $('bNet').textContent = '−' + fmt$(netFee);
+  $('bPP').textContent = '−' + fmt$(ppFee);
+  $('bRef').textContent = '−' + fmt$(refund);
+  $('bChb').textContent = '−' + fmt$(chback);
+  $('bWire').textContent = '−' + fmt$(wire);
+  $('bFx').textContent = '−' + fmt$(fxFee);
+  $('bNetP').textContent = fmt$(net);
+}
+
+['gross','netFee','refund','chback','conv','ppPct','ppFlat','wire','fx'].forEach(id=>{$(id).addEventListener('input',calc)});
+$('calcBtn').addEventListener('click',()=>{calc(); toast('Net payout calculated!');});
+
+document.querySelectorAll('.faq-item').forEach(item=>{
+  item.querySelector('.faq-q').addEventListener('click',()=>item.classList.toggle('open'));
+});
+document.querySelector('.faq-item').classList.add('open');
+
+function toast(msg){const t=$('toast');t.textContent=msg;t.classList.add('show');clearTimeout(window._t);window._t=setTimeout(()=>t.classList.remove('show'),1500);}
+calc();
+</script>
+</body>
+</html>

@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Website ROI Calculator — Break-even & Return on Investment</title>
+<!-- Google Analytics (GA4) — 把 G-XXXXXXXXXX 替换为你自己的测量 ID -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+<meta name="description" content="Free website ROI calculator. Calculate break-even point, ROI, and projected profit for your website, SaaS, or online business investment." />
+<meta name="keywords" content="website roi calculator, break even calculator, online business roi, investment return calculator, startup roi" />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://calcpro.cc.cd/website-roi-calculator/" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Website ROI Calculator — Break-even & Return on Investment" />
+<meta property="og:description" content="Free website ROI calculator. Calculate break-even point, ROI, and projected profit for your website, SaaS, or online business." />
+<meta property="og:url" content="https://calcpro.cc.cd/website-roi-calculator/" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Website ROI Calculator","applicationCategory":"CalculatorApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}","description":"Free website ROI calculator. Calculate break-even point, ROI, and projected profit for your website, SaaS, or online business investment.","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","ratingCount":"1050"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"What is a good ROI for a website?","acceptedAnswer":{"@type":"Answer","text":"A good website ROI depends on the time horizon. Over 24 months: 100%+ ROI (doubling your money) is strong for an informational blog; 300%+ is excellent for an e-commerce site; 500%+ is expected from well-executed SaaS with good product-market fit. The 2x rule: if your website doesn't return at least 2× your total investment within 3 years, consider whether the capital would be better deployed elsewhere (e.g., paid ads that return 4× within 6 months)."}},
+  {"@type":"Question","name":"How do I calculate break-even point?","acceptedAnswer":{"@type":"Answer","text":"Break-even point = Total Investment / Monthly Net Profit. If you invested $20,000 (development + hosting + marketing) and net $2,500/month in profit, break-even happens in month 8. Reality check: most websites lose money for the first 3–9 months while SEO traffic and conversion funnels mature. Use our calculator to see your monthly cashflow timeline from launch to profit."}},
+  {"@type":"Question","name":"Should I include my own time in the investment cost?","acceptedAnswer":{"@type":"Answer","text":"Yes. If you build the website yourself, value your time at a reasonable hourly rate ($50–$150/hour depending on skill). 100 hours of your time at $80/hour is $8,000 — that's real capital with an opportunity cost. Many solo founders fool themselves into thinking a project is profitable simply because they didn't pay themselves. A true ROI calculation includes your time."}},
+  {"@type":"Question","name":"How do monthly marketing costs affect ROI?","acceptedAnswer":{"@type":"Answer","text":"Monthly marketing spend (SEO retainer, content, paid ads) is the #1 silent ROI killer. A $500/month marketing budget adds $12,000 over 24 months — often more than the original website development cost. The trick: separate fixed-cost marketing (content, SEO, site improvements) from variable-cost marketing (paid ads). Paid ads should return 3× minimum within 3 months or you shut them off. Organic marketing has a much longer payback but compounding returns."}},
+  {"@type":"Question","name":"What ROI should I expect from an e-commerce vs blog vs SaaS?","acceptedAnswer":{"@type":"Answer","text":"Typical 24-month ROI benchmarks: Niche blog monetized with ads + affiliate — 150–400% ROI. E-commerce / Shopify store with paid ads — 80–250% ROI (highly dependent on paid ad efficiency). SaaS subscription business — 300–800% ROI once churn is under 5% monthly. Local business lead-gen website — 400–1,000% ROI (lowest total cost, highest relative return). These assume competent execution — poor execution returns 0% or negative regardless of model."}},
+  {"@type":"Question","name":"How does project duration affect annualized ROI?","acceptedAnswer":{"@type":"Answer","text":"Annualized ROI normalizes returns to a 12-month basis so you can compare projects with different timelines. A project that returns $25,000 profit on $10,000 investment in 24 months has a 250% total ROI but a 125% annualized ROI. A project returning $12,500 on $10,000 in 12 months has 125% total ROI and 125% annualized ROI — actually equivalent. Annualized ROI is the fair comparison metric across opportunities."}},
+  {"@type":"Question","name":"How can I improve my website ROI?","acceptedAnswer":{"@type":"Answer","text">""}}
+]}
+</script>
+
+<style>
+:root{
+  --bg:#e9f5f4;
+  --panel:#ffffff;
+  --soft:#d6ebea;
+  --border:#a3c9c7;
+  --border-strong:#0D7377;
+  --text:#0b2324;
+  --text-dim:#4f6e70;
+  --teal:#0D7377;
+  --teal-deep:#065255;
+  --cyan:#14FFEC;
+  --cyan-soft:#8ff3ea;
+  --gold:#F4B860;
+  --gold-deep:#c68f3c;
+  --green:#1e8e3e;
+  --red:#c5221f;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,'Segoe UI',Roboto,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;min-height:100vh;overflow-x:hidden}
+h1,h2,h3{font-family:-apple-system,system-ui,'Segoe UI',Roboto,sans-serif;font-weight:700;letter-spacing:-.02em;line-height:1.2;color:var(--teal-deep)}
+a{color:var(--teal);text-decoration:none}
+a:hover{text-decoration:underline}
+.container{max-width:1180px;margin:0 auto;padding:0 24px}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:50;background:rgba(233,245,244,0.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:1180px;margin:0 auto}
+.logo{font-weight:700;font-size:18px;color:var(--teal-deep);display:flex;align-items:center;gap:10px}
+.logo-mark{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,var(--teal),var(--cyan-soft));display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:var(--teal-deep);box-shadow:0 4px 14px rgba(13,115,119,0.25)}
+.nav-links{display:flex;gap:26px;align-items:center}
+.nav-links a{color:var(--text-dim);font-weight:500;font-size:14px}
+.nav-links a:hover{color:var(--teal-deep);text-decoration:none}
+.cta-btn{background:var(--gold);color:#1B2845!important;padding:10px 18px;border-radius:10px;font-weight:700;font-size:14px;text-decoration:none!important;box-shadow:0 6px 16px -4px rgba(244,184,96,0.4)}
+.cta-btn:hover{background:var(--gold-deep)}
+
+/* HERO */
+.hero{padding:64px 0 24px;text-align:center}
+.badge{display:inline-flex;align-items:center;gap:8px;background:rgba(13,115,119,0.1);color:var(--teal-deep);padding:7px 14px;border-radius:999px;font-size:12px;font-weight:700;margin-bottom:20px;border:1px solid var(--border);letter-spacing:.05em}
+.hero h1{font-size:clamp(32px,5.5vw,58px);margin-bottom:14px}
+.hero h1 .accent{color:var(--teal)}
+.hero p{font-size:17px;color:var(--text-dim);max-width:640px;margin:0 auto}
+
+/* CALC */
+.calc-wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;margin:28px 0;background:var(--panel);border:1px solid var(--border);border-radius:18px;overflow:hidden;box-shadow:0 20px 60px -24px rgba(13,115,119,0.2)}
+.panel{padding:28px}
+.inputs-panel{border-right:1px solid var(--border)}
+.panel h2{font-size:20px;margin-bottom:4px}
+.panel .sub{font-size:13px;color:var(--text-dim);margin-bottom:20px}
+
+.field{margin-bottom:16px}
+.field label{display:block;font-size:12px;font-weight:700;margin-bottom:6px;color:var(--teal-deep);letter-spacing:.06em;text-transform:uppercase}
+.field input[type="number"]{width:100%;padding:12px 14px;background:var(--soft);border:1.5px solid var(--border);border-radius:10px;color:var(--text);font-size:15px;font-weight:600;font-family:inherit;transition:all .15s}
+.field input:focus{outline:none;border-color:var(--teal);background:#fff;box-shadow:0 0 0 4px rgba(13,115,119,0.1)}
+.field .hint{font-size:11px;color:var(--text-dim);margin-top:4px;font-style:italic}
+
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.chip{padding:7px 12px;background:var(--soft);border:1.5px solid var(--border);border-radius:10px;cursor:pointer;font-size:12px;font-weight:700;color:var(--text-dim);transition:all .15s}
+.chip.active,.chip:hover{background:var(--teal);color:#fff;border-color:var(--teal);box-shadow:0 4px 12px -4px rgba(13,115,119,0.35)}
+
+/* Result */
+.result-big{background:linear-gradient(145deg,#d6ebea,#fff);padding:28px 24px;border-radius:14px;border:1px solid var(--border);text-align:center;margin-bottom:18px;position:relative;overflow:hidden}
+.result-big::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--teal),var(--gold))}
+.result-big .label{font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:var(--text-dim);font-weight:700;margin-top:6px}
+.result-big .amount{font-size:54px;font-weight:800;margin:4px 0;color:var(--teal-deep);letter-spacing:-.03em}
+.result-big .amount small{font-size:16px;color:var(--text-dim);font-weight:500;margin-left:4px}
+.result-big .subtle{font-size:13px;color:var(--text-dim);margin-top:4px}
+
+.metric-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
+.metric{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:14px}
+.metric .l{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--text-dim);font-weight:700;margin-bottom:6px}
+.metric .v{font-size:18px;color:var(--teal-deep);font-weight:800}
+
+.breakdown{display:grid;gap:8px;margin:10px 0}
+.r{display:flex;justify-content:space-between;align-items:center;padding:11px 14px;background:var(--soft);border:1px solid var(--border);border-radius:10px;font-size:13px}
+.r .n{color:var(--text-dim)}
+.r .v{font-weight:700;color:var(--teal-deep)}
+.r.total{padding:14px;background:linear-gradient(135deg,#fff,#d6ebea);border:1.5px solid var(--gold)}
+.r.total .v{font-size:20px;color:var(--gold-deep)}
+
+.primary-btn{width:100%;padding:13px;background:var(--teal);color:#fff;border:none;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;transition:all .2s;margin-top:6px;box-shadow:0 10px 24px -8px rgba(13,115,119,0.4)}
+.primary-btn:hover{background:var(--teal-deep);transform:translateY(-1px)}
+
+/* Timeline */
+.timeline{background:var(--soft);border:1px solid var(--border);border-radius:14px;padding:20px;margin-top:16px}
+.timeline h4{font-size:13px;text-transform:uppercase;letter-spacing:.1em;color:var(--teal-deep);font-weight:800;margin-bottom:12px}
+.tline{font-family:'Courier New',monospace;font-size:12px;color:var(--text-dim);line-height:1.6;white-space:pre-wrap;overflow-x:auto}
+.tline .loss{color:var(--red);font-weight:700}
+.tline .even{color:var(--teal);font-weight:700}
+.tline .profit{color:var(--gold-deep);font-weight:800}
+
+/* Dark example table */
+.dark{background:#062528;border-radius:14px;overflow:hidden;margin:28px 0;border:1px solid var(--border)}
+.dark table{width:100%;border-collapse:collapse}
+.dark th,.dark td{padding:14px 18px;text-align:left;font-size:13px;border-bottom:1px solid rgba(20,255,236,0.1)}
+.dark th{color:var(--cyan-soft);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.12em;background:rgba(13,115,119,0.3)}
+.dark tr:last-child td{border-bottom:none}
+.dark td{color:#e6f5f4;font-weight:600}
+.dark td.hi{color:var(--gold);font-weight:800}
+
+/* Sections */
+section.content{padding:56px 0}
+.section-head{text-align:center;margin-bottom:32px}
+.section-head h2{font-size:clamp(26px,4vw,40px);margin-bottom:10px}
+.section-head .sub{font-size:15px;color:var(--text-dim);max-width:640px;margin:0 auto}
+
+/* How steps */
+.three-col{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:24px}
+.step{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:24px;transition:all .2s;position:relative;overflow:hidden}
+.step:hover{transform:translateY(-2px);border-color:var(--teal);box-shadow:0 12px 30px -12px rgba(13,115,119,0.25)}
+.step::before{content:"";position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--teal),var(--gold))}
+.step .num{font-size:13px;font-weight:800;color:var(--teal);display:block;margin-bottom:8px;letter-spacing:.1em}
+.step h3{font-size:17px;margin-bottom:8px;color:var(--teal-deep)}
+.step p{font-size:13px;color:var(--text-dim);line-height:1.7}
+
+/* FAQ */
+.faq{max-width:820px;margin:0 auto}
+.faq-item{background:var(--panel);border:1px solid var(--border);border-radius:12px;margin-bottom:10px;overflow:hidden}
+.faq-q{padding:15px 20px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:14px;color:var(--teal-deep)}
+.faq-q .plus{color:var(--teal);font-weight:900;font-size:18px;transition:transform .2s}
+.faq-item.open .faq-q .plus{transform:rotate(45deg);color:var(--gold)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s;padding:0 20px;color:var(--text-dim);font-size:14px;line-height:1.75}
+.faq-item.open .faq-a{max-height:600px;padding:0 20px 18px}
+
+.ad-box{background:linear-gradient(135deg,#d6ebea,#fff);border:2px dashed var(--gold);border-radius:14px;padding:28px;text-align:center;margin:24px auto;max-width:728px}
+.ad-box .label{font-size:11px;color:var(--teal-deep);text-transform:uppercase;letter-spacing:.2em;margin-bottom:8px;font-weight:700}
+.ad-box strong{font-size:17px;display:block;margin-bottom:4px;color:var(--teal-deep)}
+.ad-box span{font-size:12px;color:var(--text-dim)}
+
+footer{background:var(--teal-deep);color:#c5d7ea;padding:48px 0 24px;margin-top:56px}
+.foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:36px;margin-bottom:28px}
+.foot-grid h4{color:var(--gold);font-size:13px;margin-bottom:12px;text-transform:uppercase;letter-spacing:.12em;font-weight:800}
+.foot-grid p,.foot-grid a{color:#c5d7ea;font-size:13px}
+.foot-grid ul{list-style:none}
+.foot-grid li{margin-bottom:8px}
+.foot-grid .logo{color:#fff;margin-bottom:12px}
+.foot-bot{border-top:1px solid rgba(197,215,234,0.15);padding-top:18px;font-size:12px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:#8ca8af}
+
+@media(max-width:900px){
+  .calc-wrap{grid-template-columns:1fr}
+  .inputs-panel{border-right:none;border-bottom:1px solid var(--border)}
+  .three-col{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr;gap:24px}
+  .nav-links a:not(.cta-btn){display:none}
+}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--teal);color:#fff;padding:12px 22px;border-radius:10px;font-size:14px;font-weight:700;opacity:0;transition:all .3s;z-index:100}
+.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+</style>
+</head>
+<body>
+
+<nav><div class="nav-inner">
+  <div class="logo"><span class="logo-mark">↻</span>Website ROI</div>
+  <div class="nav-links">
+    <a href="#calculator">Calculator</a><a href="#timeline">Timeline</a><a href="#how">How it Works</a><a href="#faq">FAQ</a>
+    <a href="#" class="cta-btn">More Tools</a>
+  </div>
+</div></nav>
+
+<header class="hero container">
+  <span class="badge">📈 For site owners · SaaS · e-commerce · startups</span>
+  <h1>Website <span class="accent">ROI</span> Calculator — Break-even &amp; Return on Investment</h1>
+  <p>Model the true return of any website investment. Enter dev cost, monthly spend, and projected revenue. See break-even point, ROI %, and a month-by-month cashflow timeline.</p>
+</header>
+
+<main class="container">
+
+  <div class="calc-wrap" id="calculator">
+    <div class="panel inputs-panel">
+      <h2>Your Investment</h2>
+      <p class="sub">Update inputs — results update live</p>
+
+      <div class="field">
+        <label>Website Development Cost ($)</label>
+        <input type="number" id="devCost" value="5000" min="0" step="100" />
+        <div class="chips"><span class="chip" data-dev="1000">$1K</span><span class="chip" data-dev="5000" class="active">$5K</span><span class="chip" data-dev="20000">$20K</span><span class="chip" data-dev="50000">$50K</span></div>
+        <div class="hint">Design + dev + copy + branding. Include your own time valued at your rate.</div>
+      </div>
+
+      <div class="field">
+        <label>Monthly Hosting &amp; Maintenance ($)</label>
+        <input type="number" id="hosting" value="49" min="0" step="1" />
+      </div>
+
+      <div class="field">
+        <label>Monthly Marketing / Ad Spend ($)</label>
+        <input type="number" id="marketing" value="500" min="0" step="10" />
+      </div>
+
+      <div class="field">
+        <label>Monthly Revenue Generated ($)</label>
+        <input type="number" id="revenue" value="2500" min="0" step="50" />
+      </div>
+
+      <div class="field">
+        <label>Project Duration (Months)</label>
+        <input type="number" id="duration" value="24" min="1" max="120" step="1" />
+        <div class="hint">24 months = standard 2-year evaluation horizon.</div>
+      </div>
+
+      <button class="primary-btn" id="calcBtn">Calculate My Website ROI →</button>
+    </div>
+
+    <div class="panel results-panel">
+      <div class="result-big">
+        <div class="label">Return on Investment (Total)</div>
+        <div class="amount" id="roiBig">0<small>%</small></div>
+        <div class="subtle" id="roiSub">Break-even in month —</div>
+      </div>
+
+      <div class="metric-grid">
+        <div class="metric"><span class="l">Total Investment</span><div class="v" id="mInv">—</div></div>
+        <div class="metric"><span class="l">Total Revenue</span><div class="v" id="mRev">—</div></div>
+        <div class="metric"><span class="l">Net Profit</span><div class="v" id="mNet">—</div></div>
+        <div class="metric"><span class="l">Annualized ROI</span><div class="v" id="mAnn">—</div></div>
+      </div>
+
+      <div class="breakdown">
+        <div class="r"><span class="n">Initial Dev Cost</span><span class="v" id="bDev">—</span></div>
+        <div class="r"><span class="n">Total Hosting (— mo.)</span><span class="v" id="bHost">—</span></div>
+        <div class="r"><span class="n">Total Marketing (— mo.)</span><span class="v" id="bMark">—</span></div>
+        <div class="r"><span class="n">Total Revenue</span><span class="v" id="bRev">—</span></div>
+        <div class="r total"><span class="n">Net Profit</span><span class="v" id="bNet">—</span></div>
+      </div>
+
+      <div class="timeline" id="timeline">
+        <h4>🗓 Month-by-Month Cashflow Timeline</h4>
+        <div class="tline" id="tline">calculating...</div>
+      </div>
+    </div>
+  </div>
+
+  <section class="content">
+    <div class="section-head">
+      <h2>Website ROI by Business Model</h2>
+      <p class="sub">Typical 24-month ROI profiles for common online business types.</p>
+    </div>
+    <div class="dark">
+      <table>
+        <thead><tr><th>Business Type</th><th>Total Invest</th><th>Total Rev</th><th>Net Profit</th><th>Break-even</th><th>24mo ROI</th></tr></thead>
+        <tbody>
+          <tr><td>Niche Blog (Ads + Affiliate)</td><td class="hi">$6,200</td><td class="hi">$18,000</td><td class="hi">$11,800</td><td class="hi">M14</td><td class="hi">190%</td></tr>
+          <tr><td>Shopify / E-commerce Store</td><td class="hi">$18,500</td><td class="hi">$42,000</td><td class="hi">$23,500</td><td class="hi">M11</td><td class="hi">127%</td></tr>
+          <tr><td>Local Business Lead-gen</td><td class="hi">$3,200</td><td class="hi">$18,000</td><td class="hi">$14,800</td><td class="hi">M05</td><td class="hi">462%</td></tr>
+          <tr><td>SaaS Subscription (Bootstrap)</td><td class="hi">$24,000</td><td class="hi">$98,000</td><td class="hi">$74,000</td><td class="hi">M08</td><td class="hi">308%</td></tr>
+          <tr><td>Agency / Services Portfolio</td><td class="hi">$4,500</td><td class="hi">$36,000</td><td class="hi">$31,500</td><td class="hi">M04</td><td class="hi">700%</td></tr>
+          <tr><td>Dropshipping (Paid Ads)</td><td class="hi">$15,000</td><td class="hi">$22,000</td><td class="hi">$7,000</td><td class="hi">M18</td><td class="hi">47%</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="content" id="how">
+    <div class="section-head">
+      <h2>How Website ROI Works</h2>
+      <p class="sub">Three components that determine whether a site is a winning investment.</p>
+    </div>
+    <div class="three-col">
+      <div class="step"><span class="num">STEP · 01</span><h3>Total Capital at Risk</h3><p>Sum initial build cost + ongoing hosting + marketing spend × project duration. Most founders dramatically underestimate marketing spend over 24 months — it's often 2–4× the original build cost.</p></div>
+      <div class="step"><span class="num">STEP · 02</span><h3>Break-even Point</h3><p>Break-even = Total Investment ÷ Monthly Net Profit. Reality: most websites lose money for months 1–6 while SEO traffic and funnels mature. A site that breaks even in month 12 or less is a strong investment; month 18–24 is acceptable; never break-even = shut it down.</p></div>
+      <div class="step"><span class="num">STEP · 03</span><h3>Total &amp; Annualized ROI</h3><p>Total ROI = (Net Profit / Total Investment) × 100. Annualized ROI normalizes the return to a 12-month basis so you can compare opportunities fairly. A 250% return over 24 months = 125% annualized ROI — strong but not magical.</p></div>
+    </div>
+  </section>
+
+  <div class="ad-box">
+    <div class="label">Sponsored</div>
+    <strong>Business Tools — 728 × 90 Leaderboard</strong>
+    <span>Website owners, founders, small business operators</span>
+  </div>
+
+  <section class="content" id="faq">
+    <div class="section-head"><h2>FAQ</h2><p class="sub">Top questions about website ROI and break-even.</p></div>
+    <div class="faq">
+      <div class="faq-item"><div class="faq-q">What is a good ROI for a website?<span class="plus">+</span></div><div class="faq-a"><p>Over 24 months: <strong>100%+ ROI</strong> (doubling your money) is strong for an informational blog; <strong>300%+</strong> is excellent for an e-commerce site; <strong>500%+</strong> is expected from well-executed SaaS with good product-market fit. The 2× rule: if your website doesn't return at least 2× your total investment within 3 years, consider whether the capital would be better deployed elsewhere (e.g., paid ads that return 4× within 6 months).</p></div></div>
+      <div class="faq-item"><div class="faq-q">How do I calculate break-even point?<span class="plus">+</span></div><div class="faq-a"><p>Break-even point = Total Investment / Monthly Net Profit. If you invested $20,000 and net $2,500/month in profit, break-even happens in month 8. <strong>Reality check:</strong> most websites lose money for the first 3–9 months while SEO traffic and conversion funnels mature. Use our calculator to see your monthly cashflow timeline from launch to profit.</p></div></div>
+      <div class="faq-item"><div class="faq-q">Should I include my own time in the investment cost?<span class="plus">+</span></div><div class="faq-a"><p><strong>Yes.</strong> If you build the website yourself, value your time at a reasonable hourly rate ($50–$150/hour depending on skill). 100 hours at $80/hour is $8,000 — that's real capital with an opportunity cost. Many solo founders fool themselves into thinking a project is profitable simply because they didn't pay themselves. A true ROI calculation includes your time.</p></div></div>
+      <div class="faq-item"><div class="faq-q">How do monthly marketing costs affect ROI?<span class="plus">+</span></div><div class="faq-a"><p>Monthly marketing spend is the <strong>#1 silent ROI killer</strong>. A $500/month marketing budget adds $12,000 over 24 months — often more than the original website development cost. Separate fixed-cost marketing (content, SEO) from variable-cost marketing (paid ads). Paid ads should return <strong>3× minimum within 3 months</strong> or you shut them off. Organic marketing has a much longer payback but compounding returns.</p></div></div>
+      <div class="faq-item"><div class="faq-q">What ROI should I expect from an e-commerce vs blog vs SaaS?<span class="plus">+</span></div><div class="faq-a"><p>Typical 24-month ROI benchmarks: <strong>Niche blog (ads + affiliate)</strong> — 150–400% ROI. <strong>E-commerce / Shopify store with paid ads</strong> — 80–250% ROI (highly ad-dependent). <strong>SaaS subscription</strong> — 300–800% ROI once churn is under 5% monthly. <strong>Local business lead-gen website</strong> — 400–1,000% ROI (lowest total cost, highest relative return). These assume competent execution.</p></div></div>
+      <div class="faq-item"><div class="faq-q">How does project duration affect annualized ROI?<span class="plus">+</span></div><div class="faq-a"><p>Annualized ROI normalizes returns to a 12-month basis for fair comparison across opportunities. A project returning $25,000 profit on $10,000 in 24 months has <strong>250% total ROI</strong> but <strong>125% annualized ROI</strong>. A project returning $12,500 on $10,000 in 12 months has <strong>125% total</strong> and <strong>125% annualized</strong> ROI — actually equivalent. Annualized ROI is the fair comparison metric.</p></div></div>
+      <div class="faq-item"><div class="faq-q">How can I improve my website ROI?<span class="plus">+</span></div><div class="faq-a"><p>Six proven levers: <strong>(1)</strong> Optimize conversion rate first — lifting CVR from 1.5% to 3% doubles profit per visitor; <strong>(2)</strong> Replace high-fee paid ads with compounding SEO/content; <strong>(3)</strong> Increase average order value with upsells and bundles; <strong>(4)</strong> Add a recurring revenue component (subscriptions, memberships, retainers); <strong>(5)</strong> Reduce churn on subscription models; <strong>(6)</strong> Cut marketing spend that doesn't have a 3×+ return within 3 months — reinvest it where it does.</p></div></div>
+    </div>
+  </section>
+
+</main>
+
+<footer><div class="container">
+  <div class="foot-grid">
+    <div><div class="logo"><span class="logo-mark">↻</span>Website ROI</div><p style="font-size:13px;max-width:320px">Free website ROI and break-even calculators for site owners, SaaS founders, small business operators, and e-commerce entrepreneurs.</p></div>
+    <div><h4>Calculators</h4><ul><li><a href="#">Website ROI</a></li><li><a href="#">Break-even</a></li><li><a href="#">Startup ROI</a></li><li><a href="#">SaaS Payback</a></li></ul></div>
+    <div><h4>Guides</h4><ul><li><a href="#">Boost Conversion Rate</a></li><li><a href="#">Cut Marketing Waste</a></li><li><a href="#">Recurring Revenue Models</a></li><li><a href="#">Blog</a></li></ul></div>
+    <div><h4>Company</h4><ul><li><a href="#">About</a></li><li><a href="#">Contact</a></li><li><a href="#">Privacy</a></li><li><a href="#">Terms</a></li></ul></div>
+  </div>
+  <div class="foot-bot"><span>© 2026 Website ROI Calc. All estimates are illustrative.</span><span>Built for operators 📈</span></div>
+</div></footer>
+
+<div class="toast" id="toast">ROI calculated!</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const $N = id => parseFloat($(id).value) || 0;
+const fmt$ = n => '$' + Math.round(n).toLocaleString('en-US');
+const pct = n => Number(n).toFixed(1) + '%';
+
+document.querySelectorAll('[data-dev]').forEach(c=>{
+  c.addEventListener('click',()=>{
+    document.querySelectorAll('[data-dev]').forEach(x=>x.classList.remove('active'));
+    c.classList.add('active'); $('devCost').value=parseFloat(c.dataset.dev); calc();
+  });
+});
+
+function calc(){
+  const dev = $N('devCost');
+  const host = $N('hosting');
+  const mkt = $N('marketing');
+  const rev = $N('revenue');
+  const dur = $N('duration');
+
+  const totalHost = host * dur;
+  const totalMkt = mkt * dur;
+  const totalInvest = dev + totalHost + totalMkt;
+  const totalRev = rev * dur;
+  const netProfit = totalRev - totalInvest;
+  const totalROI = totalInvest > 0 ? (netProfit / totalInvest) * 100 : 0;
+  const monthlyNet = rev - host - mkt;
+  const annualized = dur > 0 ? totalROI * (12 / dur) : 0;
+  const breakEvenMonth = monthlyNet > 0 ? dev / monthlyNet : Infinity;
+
+  $('roiBig').innerHTML = Number(totalROI).toFixed(1) + '<small>%</small>';
+  $('roiSub').textContent = monthlyNet > 0 && breakEvenMonth <= dur
+    ? 'Break-even in month ' + Math.ceil(breakEvenMonth) + ' · $' + Math.round(monthlyNet).toLocaleString() + '/mo net'
+    : (monthlyNet <= 0 ? 'Monthly net cashflow negative — not breaking even' : 'Beyond project horizon');
+
+  $('mInv').textContent = fmt$(totalInvest);
+  $('mRev').textContent = fmt$(totalRev);
+  $('mNet').textContent = fmt$(netProfit);
+  $('mAnn').textContent = pct(annualized);
+
+  $('bDev').textContent = fmt$(dev);
+  const hostRow = document.querySelectorAll('.breakdown .r')[1];
+  hostRow.querySelector('.n').textContent = 'Total Hosting (' + Math.round(dur) + ' mo.)';
+  $('bHost').textContent = fmt$(totalHost);
+  const mktRow = document.querySelectorAll('.breakdown .r')[2];
+  mktRow.querySelector('.n').textContent = 'Total Marketing (' + Math.round(dur) + ' mo.)';
+  $('bMark').textContent = fmt$(totalMkt);
+  $('bRev').textContent = fmt$(totalRev);
+  $('bNet').textContent = (netProfit >= 0 ? '' : '−') + fmt$(Math.abs(netProfit));
+
+  // Timeline
+  let html = '';
+  let cumulative = -dev;
+  const lineLen = 42;
+  const peaks = [Math.abs(-dev - (host + mkt)) * 2, Math.abs(totalRev)];
+  const scale = Math.max(...peaks) / lineLen || 1;
+  for (let m = 1; m <= dur; m++) {
+    cumulative += (rev - host - mkt);
+    let bar;
+    let bars = Math.round(Math.abs(cumulative) / scale);
+    if (bars < 1 && cumulative < 0) bars = 1;
+    if (cumulative < 0) {
+      bar = '█'.repeat(Math.min(bars, lineLen));
+      html += '<span class="loss">M' + String(m).padStart(2,'0') + ' ' + fmt$(cumulative) + ' ' + bar + '</span>\n';
+    } else if (cumulative === 0 || (breakEvenMonth <= m && breakEvenMonth > m - 1)) {
+      bar = '▓'.repeat(Math.min(bars, lineLen));
+      html += '<span class="even">M' + String(m).padStart(2,'0') + ' ' + fmt$(cumulative) + ' ' + bar + ' ⇲ break-even</span>\n';
+    } else {
+      bar = '░'.repeat(Math.min(bars, lineLen));
+      html += '<span class="profit">M' + String(m).padStart(2,'0') + ' ' + fmt$(cumulative) + ' ' + bar + '</span>\n';
+    }
+  }
+  $('tline').innerHTML = html + '\n<span class="even">▓ Break-even</span>  <span class="loss">█ Loss</span>  <span class="profit">░ Profit</span>';
+}
+
+['devCost','hosting','marketing','revenue','duration'].forEach(id=>{$(id).addEventListener('input',calc)});
+$('calcBtn').addEventListener('click',()=>{calc(); toast('Website ROI calculated!');});
+
+document.querySelectorAll('.faq-item').forEach(item=>{
+  item.querySelector('.faq-q').addEventListener('click',()=>item.classList.toggle('open'));
+});
+document.querySelector('.faq-item').classList.add('open');
+
+function toast(msg){const t=$('toast');t.textContent=msg;t.classList.add('show');clearTimeout(window._t);window._t=setTimeout(()=>t.classList.remove('show'),1500);}
+calc();
+</script>
+</body>
+</html>

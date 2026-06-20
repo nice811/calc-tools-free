@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://calcpro.cc.cd/sitemap.xml

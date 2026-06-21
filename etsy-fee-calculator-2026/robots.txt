@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 
-Sitemap: https://calcpro.cc.cd/sitemap.xml
+Sitemap: https://calcpro.bbroot.com/sitemap.xml
